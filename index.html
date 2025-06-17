@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiraya Private Resort</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+   <header>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#Home">
+                <img src="hirayalogo3.png" alt="Hiraya Logo">
+                <span>HIRAYA PRIVATE RESORT</span>
+            </a>
+        </div>
+        <ul>
+            <li><a href="#Home">Home</a></li>
+            <li><a href="book.html">Rates</a></li> <li><a href="#Amenities">Amenities</a></li>
+            <li><a href="#ContactUs">Contact Us</a></li>
+            <li><a href="book.html" class="book-now-btn">Book Now</a></li>
+        </ul>
+    </nav>
+    </header>
+
+    <section id="Home">
+        <div class="home-content">
+            <h1>Welcome to Hiraya Private Resort</h1>
+            <p>Your tropical island life escape.</p>
+            <ul>
+                <li>2 Bedroom Villa</li>
+                <li>Private pool</li>
+                <li>Free breakfast</li>
+                <li>Affordable rates</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="Amenities" class="amenities-section">
+        <h1>Our Amenities</h1>
+        <div class="amenities-collage-container">
+            <img src="amenities.jpg" alt="Hiraya Pool View" class="collage-img img-1">
+            <img src="amenities2.jpg" alt="Hiraya Villa Interior" class="collage-img img-2">
+            <img src="amenities3.jpg" alt="Hiraya Beachfront" class="collage-img img-3">
+            <img src="amenities4.jpg" alt="Hiraya Gardens" class="collage-img img-4">
+        </div>
+    <p>We provide an island life escape for your family and friends!</p>
+    <ul>
+        <li>Beach Access</li>
+        <li>Infinity Pool</li>
+        <li>Spacious Villa</li>
+        <li>No corkage fee</li>
+    </ul>
+        <button class="return-home" data-section="Home">Return to Home</button>
+    </section>
+    <section id="Rates">
+    <h1>Our Resort Rates</h1>
+    <div class="rates-container">
+        <div class="rate-card">
+            <img src="rates1.jpg" alt="Day Use Rates">
+            <h2>Day Use Packages</h2>
+            <p>Enjoy our facilities from morning to late afternoon. Perfect for quick getaways!</p>
+            <a href="book.html?type=dayuse" class="book-now-btn">Book Day Use</a> </div>
+        <div class="rate-card">
+            <img src="rates2.jpg" alt="Overnight Accommodations">
+            <h2>Overnight Accommodations</h2>
+            <p>Experience a peaceful night's rest in our comfortable accommodations.</p>
+            <a href="book.html?type=overnight" class="book-now-btn">Book Overnight</a> </div>
+    </div>
+    <a href="#Home" class="return-home">Back to Top</a>
+    </section>
+
+    <section id="ContactUs">
+        <h1>Contact us now!</h1>
+        <ul class="social-links">
+            <li><a href="https://www.facebook.com/hirayaprivateresort/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-square"></i></a></li>
+            <li><a href="https://www.tiktok.com/@hirayaprivateresort" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a></li>
+            <li><a href="mailto:hiraya.pr@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+            <li><span>Mobile: 09991112233</span></li>
+        </ul>
+        <button class="return-home" data-section="Home">Return to Home</button>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const returnHomeButtons = document.querySelectorAll('.return-home');
+            returnHomeButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const targetSectionId = this.dataset.section;
+                    if (targetSectionId) {
+                        const targetSection = document.getElementById(targetSectionId);
+                        if (targetSection) {
+                            targetSection.scrollIntoView({ behavior: 'smooth' });
+                        } else {
+                            window.location.href = 'index.html'; // Fallback if section doesn't exist on the page
+                        }
+                    } else {
+                        window.location.href = 'index.html'; // Default action if no data-section
+                    }
+                });
+            });
+
+            // Smooth scrolling for navigation links
+            const navLinks = document.querySelectorAll('.navbar a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+    <div id="lightbox-overlay">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-image" src="" alt="Enlarged Image">
+</div>
+
+<script>
+    // Your existing JavaScript for smooth scrolling if you have it
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // NEW: Lightbox JavaScript
+    const lightboxOverlay = document.getElementById('lightbox-overlay');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    const collageImages = document.querySelectorAll('.amenities-collage-container .collage-img');
+
+    collageImages.forEach(img => {
+        img.addEventListener('click', () => {
+            lightboxOverlay.style.display = 'flex'; // Show the overlay
+            lightboxImage.src = img.src; // Set the large image source
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when lightbox is open
+        });
+    });
+
+    lightboxClose.addEventListener('click', () => {
+        lightboxOverlay.style.display = 'none'; // Hide the overlay
+        document.body.style.overflow = ''; // Re-enable scrolling
+    });
+
+    // Close lightbox when clicking outside the image
+    lightboxOverlay.addEventListener('click', (e) => {
+        if (e.target === lightboxOverlay) {
+            lightboxOverlay.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    });
+</script>
+</body>
+</html>

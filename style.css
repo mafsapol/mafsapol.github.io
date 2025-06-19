@@ -53,6 +53,12 @@ header {
     vertical-align: middle; /* Helps align text with image if needed */
     text-decoration: none; /* NEW: Remove any strikethrough or underline */
 }
+/* Style for the new text logo image */
+.logo-text-img {
+    height: 60px; /* Adjust this height to match the size of your main logo and fit well */
+    width: auto; /* Maintain aspect ratio */
+    margin-left: 15px; /* Adjust spacing between the two logo images */
+}
 
 .navbar ul {
     list-style: none;

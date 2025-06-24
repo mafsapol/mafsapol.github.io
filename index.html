@@ -149,6 +149,62 @@ document.addEventListener("DOMContentLoaded", function() {
     // ... rest of your existing JavaScript ...
     // e.g., smooth scrolling, lightbox, etc.
 });
+// Inside your existing <script> tag in index.html, after the menu toggle JS
+document.addEventListener("DOMContentLoaded", function() {
+    // ... (Your existing menu toggle JS here) ...
+
+    // Slideshow JavaScript
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".mySlides");
+    const dots = document.querySelectorAll(".dot");
+
+    function showSlides() {
+        if (slides.length === 0) return; // Exit if no slides found
+
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active-dot", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active-dot";
+        setTimeout(showSlides, 3000); // Change image every 3 seconds (3000ms)
+    }
+
+    // Function for dot navigation
+    window.currentSlide = function(n) {
+        if (slides.length === 0) return;
+        slideIndex = n - 1; // Adjust for 0-based index
+        // Stop current timeout, show the selected slide, then restart
+        clearTimeout(slideshowTimeout); // Clear existing timeout
+        showSlidesManual(); // Show selected slide immediately
+        slideshowTimeout = setTimeout(showSlides, 3000); // Restart auto-play
+    }
+
+    // Function to show a specific slide (for manual navigation)
+    function showSlidesManual() {
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active-dot", "");
+        }
+        slides[slideIndex].style.display = "block";
+        dots[slideIndex].className += " active-dot";
+    }
+
+    let slideshowTimeout; // Variable to store the timeout ID
+    if (slides.length > 0) {
+         slideshowTimeout = setTimeout(showSlides, 0); // Start slideshow immediately on load
+    }
+
+    // ... (Your existing smooth scrolling and lightbox JS here) ...
+});
     // Your existing JavaScript for smooth scrolling if you have it
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {

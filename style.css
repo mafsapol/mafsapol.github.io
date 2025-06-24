@@ -22,7 +22,7 @@ header {
 }
 
 .navbar {
-    width: 85%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between; /* Space out logo and the rest */
@@ -44,7 +44,7 @@ header {
 }
 
 .logo img {
-    height: 100px; /* Adjust the height as needed */
+    height: 85px; /* Adjust the height as needed */
     max-width: none; /* Prevent this image from becoming 100% width on mobile too early */
 }
 

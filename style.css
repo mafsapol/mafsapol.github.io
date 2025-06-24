@@ -219,53 +219,149 @@ section {
     background-color: #717171;
 }
 
-/* Amenities Section */
+/* --- Amenities Section Specific Styles --- */
 #Amenities {
-    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(amenities4.jpg); /* Replace with your image */
-    padding-top: 80px; /* Ensure space for fixed header */
+    /* Keep existing background-image and padding */
+    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(amenities4.jpg); /* Your background */
+    padding-top: 80px;
+    /* Ensure flex properties if needed for internal alignment */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.amenities-section h1 { /* Changed from .amenities-content h1 */
+.amenities-section {
+    width: 100%;
+    max-width: 1000px; /* Limit width of content for readability */
+    text-align: center;
+    padding: 20px;
+}
+
+.amenities-section h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
+    color: #fff;
 }
 
-.amenities-section p { /* Changed from .amenities-content p */
+.amenities-section p {
     font-size: 1.2rem;
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: 30px; /* Space before slideshow */
+    color: #fff;
 }
 
-.amenities-section ul { /* Changed from .amenities-content ul */
+.amenities-section ul {
     list-style: none;
     padding: 0;
-}
-
-.amenities-section li { /* Changed from .amenities-content li */
-    margin-bottom: 10px;
-}
-
-/* Collage images in Amenities */
-.amenities-collage-container {
+    margin-top: 30px; /* Space after slideshow */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px; /* Space between images */
-    margin-top: 30px;
-    margin-bottom: 30px;
+    color: #fff;
 }
 
-.collage-img {
-    width: 45%; /* Adjust width for 2 columns */
-    height: auto;
-    object-fit: cover;
+.amenities-section li {
+    margin: 5px 15px; /* Adjust spacing for list items */
+    font-size: 1.1rem;
+}
+
+/* --- Amenities Slideshow Specific Styles --- */
+.amenities-slideshow {
+    position: relative;
+    width: 80%; /* Adjust width as desired within the section */
+    max-width: 900px; /* Max width for the slideshow */
+    height: 500px; /* Fixed height for the amenities slideshow */
+    overflow: hidden;
+    margin: 0 auto 30px auto; /* Center and add space below */
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-.collage-img:hover {
-    transform: scale(1.03);
+.mySlides-amenities {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.mySlides-amenities img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(60%); /* Darken image for text readability */
+}
+
+/* Re-using slide-text styles, but specific to amenities-slideshow */
+.amenities-slideshow .slide-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    z-index: 2;
+    text-align: center;
+    width: 80%;
+}
+
+.amenities-slideshow .slide-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.amenities-slideshow .slide-text p {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    margin-bottom: 0; /* No margin bottom */
+}
+
+/* Dots for Amenities slideshow navigation */
+.slide-dots-amenities {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    z-index: 3;
+}
+
+.dot-amenities {
+    cursor: pointer;
+    height: 12px; /* Slightly smaller dots */
+    width: 12px;
+    margin: 0 3px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active-dot-amenities, .dot-amenities:hover {
+    background-color: #717171;
+}
+
+/* Mobile Responsiveness for Amenities Section */
+@media (max-width: 768px) {
+    .amenities-section h1 {
+        font-size: 2rem;
+    }
+    .amenities-section p {
+        font-size: 1rem;
+    }
+    .amenities-slideshow {
+        width: 95%; /* Wider on mobile */
+        height: 300px; /* Shorter on mobile */
+    }
+    .amenities-slideshow .slide-text h2 {
+        font-size: 1.8rem;
+    }
+    .amenities-slideshow .slide-text p {
+        font-size: 1rem;
+    }
+    .amenities-section li {
+        font-size: 1rem;
+    }
 }
 
 

@@ -45,23 +45,53 @@
         </div>
     </section>
 
-    <section id="Amenities" class="amenities-section">
+    <section id="Amenities">
+    <div class="amenities-section">
         <h1>Our Amenities</h1>
-        <div class="amenities-collage-container">
-            <img src="amenities.jpg" alt="Hiraya Pool View" class="collage-img img-1">
-            <img src="amenities2.jpg" alt="Hiraya Villa Interior" class="collage-img img-2">
-            <img src="amenities3.jpg" alt="Hiraya Beachfront" class="collage-img img-3">
-            <img src="amenities4.jpg" alt="Hiraya Gardens" class="collage-img img-4">
+        <p>Experience comfort and luxury with our wide range of facilities designed for your relaxation and enjoyment.</p>
+
+        <div class="slideshow-container amenities-slideshow">
+            <div class="mySlides-amenities fade">
+                <img src="amenities.jpg" alt="Swimming Pool">
+                <div class="slide-text"><h2>Private Swimming Pool</h2><p>Enjoy exclusive access to our refreshing pool.</p></div>
+            </div>
+
+            <div class="mySlides-amenities fade">
+                <img src="amenities2.jpg" alt="Spacious Living Area">
+                <div class="slide-text"><h2>Spacious Living Area</h2><p>Comfortable spaces for family and friends.</p></div>
+            </div>
+
+            <div class="mySlides-amenities fade">
+                <img src="amenities3.jpg" alt="Outdoor Lounge">
+                <div class="slide-text"><h2>Outdoor Lounge</h2><p>Relax and unwind in the fresh air.</p></div>
+            </div>
+
+            <div class="mySlides-amenities fade">
+                <img src="amenities4.jpg" alt="Comfortable Bedrooms">
+                <div class="slide-text"><h2>Comfortable Bedrooms</h2><p>Rest well in our cozy villa rooms.</p></div>
+            </div>
+
+            <div class="slide-dots-amenities">
+                <span class="dot-amenities" onclick="currentSlideAmenities(1)"></span>
+                <span class="dot-amenities" onclick="currentSlideAmenities(2)"></span>
+                <span class="dot-amenities" onclick="currentSlideAmenities(3)"></span>
+                <span class="dot-amenities" onclick="currentSlideAmenities(4)"></span>
+            </div>
         </div>
-    <p>We provide an island life escape for your family and friends!</p>
-    <ul>
-        <li>Beach Access</li>
-        <li>Infinity Pool</li>
-        <li>Spacious Villa</li>
-        <li>No corkage fee</li>
-    </ul>
-        <button class="return-home" data-section="Home">Return to Home</button>
-    </section>
+
+        <ul>
+            <li>Private Swimming Pool</li>
+            <li>Fully Equipped Kitchen</li>
+            <li>Air-conditioned Bedrooms</li>
+            <li>Outdoor Dining Area</li>
+            <li>Barbecue Grill</li>
+            <li>Karaoke Machine</li>
+            <li>Free Wi-Fi</li>
+            <li>Parking Space</li>
+            <li>Dedicated Staff</li>
+        </ul>
+    </div>
+</section>
     <section id="Rates">
     <h1>Our Resort Rates</h1>
     <div class="rates-container">
@@ -127,8 +157,8 @@
 </div>
 
 <script>
-    // Inside your existing <script> tag in index.html, preferably at the top of the DOMContentLoaded block
-document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function() {
+    // --- Header Menu Toggle ---
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
@@ -147,102 +177,104 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // ... rest of your existing JavaScript ...
-    // e.g., smooth scrolling, lightbox, etc.
-});
-// Inside your existing <script> tag in index.html, after the menu toggle JS
-document.addEventListener("DOMContentLoaded", function() {
-    // ... (Your existing menu toggle JS here) ...
+    // --- Generic Slideshow Logic for Multiple Slideshows ---
+    function initSlideshow(containerClass, slideClass, dotClass) {
+        let slideIndex = 0;
+        const slides = document.querySelectorAll(`.${containerClass} .${slideClass}`);
+        const dots = document.querySelectorAll(`.${containerClass} .${dotClass}`);
+        let slideshowTimeout; // Local timeout variable for this slideshow
 
-    // Slideshow JavaScript
-    let slideIndex = 0;
-    const slides = document.querySelectorAll(".mySlides");
-    const dots = document.querySelectorAll(".dot");
+        if (slides.length === 0) {
+            console.warn(`No slides found for container: .${containerClass}`);
+            return;
+        }
 
-    function showSlides() {
-        if (slides.length === 0) return; // Exit if no slides found
+        function showSlides() {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(` active-${dotClass}`, "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += ` active-${dotClass}`;
+            slideshowTimeout = setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
 
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
+        function showSlidesManual(n) {
+            // Adjust for 0-based index
+            slideIndex = n - 1; 
+            // Clear existing timeout to prevent immediate auto-advance
+            clearTimeout(slideshowTimeout); 
+            // Show the selected slide immediately
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(` active-${dotClass}`, "");
+            }
+            slides[slideIndex].style.display = "block";
+            dots[slideIndex].className += ` active-${dotClass}`;
+            // Restart auto-play after a short delay
+            slideshowTimeout = setTimeout(showSlides, 3000); 
         }
-        slideIndex++;
-        if (slideIndex > slides.length) {
-            slideIndex = 1;
+
+        // Attach manual dot click handlers (needs to be global or attached to window)
+        // For simplicity and direct use with onclick in HTML, we'll expose global functions
+        if (containerClass === 'slideshow-container') { // Home Slideshow
+            window.currentSlide = showSlidesManual;
+        } else if (containerClass === 'amenities-slideshow') { // Amenities Slideshow
+            window.currentSlideAmenities = showSlidesManual;
         }
-        for (let i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active-dot", "");
-        }
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active-dot";
-        setTimeout(showSlides, 3000); // Change image every 3 seconds (3000ms)
+        
+        // Start the slideshow
+        slideshowTimeout = setTimeout(showSlides, 0); // Start immediately on load
     }
 
-    // Function for dot navigation
-    window.currentSlide = function(n) {
-        if (slides.length === 0) return;
-        slideIndex = n - 1; // Adjust for 0-based index
-        // Stop current timeout, show the selected slide, then restart
-        clearTimeout(slideshowTimeout); // Clear existing timeout
-        showSlidesManual(); // Show selected slide immediately
-        slideshowTimeout = setTimeout(showSlides, 3000); // Restart auto-play
-    }
+    // Initialize the Home Slideshow
+    initSlideshow('slideshow-container', 'mySlides', 'dot');
 
-    // Function to show a specific slide (for manual navigation)
-    function showSlidesManual() {
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        for (let i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active-dot", "");
-        }
-        slides[slideIndex].style.display = "block";
-        dots[slideIndex].className += " active-dot";
-    }
+    // Initialize the Amenities Slideshow
+    initSlideshow('amenities-slideshow', 'mySlides-amenities', 'dot-amenities');
 
-    let slideshowTimeout; // Variable to store the timeout ID
-    if (slides.length > 0) {
-         slideshowTimeout = setTimeout(showSlides, 0); // Start slideshow immediately on load
-    }
 
-    // ... (Your existing smooth scrolling and lightbox JS here) ...
-});
-    // Your existing JavaScript for smooth scrolling if you have it
+    // --- Smooth Scrolling ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId && targetId !== '#') { // Ensure targetId is not null or just '#'
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Calculate offset for fixed header
+                    const headerOffset = 100; // Adjust this value to match your fixed header's height
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            }
         });
     });
 
-    // NEW: Lightbox JavaScript
-    const lightboxOverlay = document.getElementById('lightbox-overlay');
-    const lightboxImage = document.getElementById('lightbox-image');
-    const lightboxClose = document.querySelector('.lightbox-close');
-    const collageImages = document.querySelectorAll('.amenities-collage-container .collage-img');
-
-    collageImages.forEach(img => {
-        img.addEventListener('click', () => {
-            lightboxOverlay.style.display = 'flex'; // Show the overlay
-            lightboxImage.src = img.src; // Set the large image source
-            document.body.style.overflow = 'hidden'; // Prevent scrolling when lightbox is open
-        });
-    });
-
-    lightboxClose.addEventListener('click', () => {
-        lightboxOverlay.style.display = 'none'; // Hide the overlay
-        document.body.style.overflow = ''; // Re-enable scrolling
-    });
-
-    // Close lightbox when clicking outside the image
-    lightboxOverlay.addEventListener('click', (e) => {
-        if (e.target === lightboxOverlay) {
-            lightboxOverlay.style.display = 'none';
-            document.body.style.overflow = '';
-        }
-    });
+    // --- Simple Lightbox (if you have one, keep it here) ---
+    // Example: if you have a simple image gallery where clicking expands image
+    // const galleryItems = document.querySelectorAll('.gallery-item');
+    // if (galleryItems) {
+    //     galleryItems.forEach(item => {
+    //         item.addEventListener('click', function() {
+    //             // Lightbox logic
+    //         });
+    //     });
+    // }
+});
 </script>
 </body>
 </html>

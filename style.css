@@ -566,7 +566,7 @@ section {
     }
 
     .logo {
-        margin-bottom: 1rem; /* Space between logo and stacked nav */
+        margin-bottom: 0.5rem; /* Space between logo and stacked nav */
     }
 
     /* Adjust logo images if they are too big */

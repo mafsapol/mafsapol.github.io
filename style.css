@@ -543,3 +543,97 @@ section {
         padding: 15px;
     }
 }
+/* --- Responsive Adjustments for Smaller Screens --- */
+
+/* For screens smaller than 768px (e.g., tablets in portrait, larger phones) */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack logo and nav links vertically */
+        align-items: flex-start; /* Align items to the start */
+        padding: 1rem 5%; /* Adjust padding */
+        width: 100%; /* Ensure it takes full width */
+    }
+
+    .navbar ul {
+        width: 100%; /* Take full width */
+        flex-direction: column; /* Stack nav items vertically */
+        align-items: center; /* Center the stacked nav items */
+        margin-top: 1rem; /* Add space below logo */
+    }
+
+    .navbar ul li {
+        margin: 0.5rem 0; /* Adjust vertical spacing for list items */
+    }
+
+    .logo {
+        margin-bottom: 1rem; /* Space between logo and stacked nav */
+    }
+
+    /* Adjust logo images if they are too big */
+    .logo img {
+        height: 60px; /* Smaller main logo */
+    }
+    .logo-text-img {
+        height: 40px; /* Smaller text logo */
+        margin-left: 10px; /* Adjust spacing */
+    }
+
+    /* General section adjustments */
+    section {
+        padding: 4rem 5%; /* Adjust padding for sections */
+    }
+
+    /* Home section text */
+    .home-content h1 {
+        font-size: 2rem; /* Smaller heading */
+    }
+    .home-content p {
+        font-size: 1rem; /* Smaller paragraph text */
+    }
+    .home-content ul li {
+        font-size: 0.9rem; /* Smaller list items */
+    }
+
+    /* Rates and Amenities containers */
+    .rates-container,
+    .amenities-collage-container {
+        flex-direction: column; /* Stack rate cards/collage images vertically */
+        align-items: center; /* Center them */
+    }
+
+    .rate-card {
+        width: 90%; /* Make rate cards take more width */
+        margin-bottom: 2rem; /* Add space between stacked cards */
+    }
+
+    .collage-img {
+        width: 90%; /* Make collage images take more width */
+        height: auto; /* Maintain aspect ratio */
+        margin-bottom: 1rem; /* Space between stacked images */
+    }
+
+    /* Contact Us social links */
+    .social-links {
+        flex-direction: column; /* Stack social icons vertically */
+    }
+
+    .social-links li {
+        margin: 0.5rem 0; /* Adjust vertical spacing */
+    }
+
+    .social-links a, .social-links span {
+        font-size: 1.5rem; /* Smaller icons/text */
+    }
+}
+
+/* For even smaller screens, like typical mobile phones (max-width 480px or 600px) */
+@media (max-width: 480px) {
+    .home-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .book-now-btn {
+        padding: 0.8rem 1.5rem; /* Slightly smaller button padding */
+        font-size: 0.9rem; /* Smaller button text */
+    }
+}

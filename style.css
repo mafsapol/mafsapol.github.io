@@ -22,650 +22,29 @@ header {
 }
 
 .navbar {
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    display: inline-block; /* Makes the link wrap the image properly */
-}
-
-.logo a {
-    font-family: "Aerobic", sans-serif;
-    display: flex; /* Change to flexbox */
-    align-items: center; /* Vertically center items within the link */
-    text-decoration: none; /* Ensure no underline on the link */
-}
-
-.logo img {
-    height: 35px; /* Adjust the height as needed */
-}
-
-
-.logo span {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #fff; /* Ensures white color explicitly */
-    margin-left: 10px; /* Adjust spacing between logo image and text */
-    vertical-align: middle; /* Helps align text with image if needed */
-    text-decoration: none; /* NEW: Remove any strikethrough or underline */
-}
-/* Style for the new text logo image */
-.logo-text-img {
-    height: 60px; /* Adjust this height to match the size of your main logo and fit well */
-    width: auto; /* Maintain aspect ratio */
-    margin-left: 15px; /* Adjust spacing between the two logo images */
-}
-
-.navbar ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-}
-
-.navbar ul li {
-    margin-left: 2rem;
-}
-
-.navbar ul li a {
-    text-decoration: none;
-    color: #fff;
-    transition: color 0.3s ease;
-}
-
-.navbar ul li a:hover {
-    color: #009688;
-}
-
-.book-now-btn {
-    background-color: #009688;
-    color: #fff !important;
-    padding: 0.75rem 1.5rem;
-    border-radius: 25px;
-}
-
-.book-now-btn:hover {
-    background-color: #007066;
-}
-
-section {
-    width: 100%;
-    min-height: 100vh;
-    padding: 150px 50px 80px; /* IMPORTANT: Increased padding-top to 150px to clear fixed header */
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative; /* Ensure z-index works for overlays */
-    overflow: hidden; /* Hide overflowing elements (like rotated collage images) */
-}
-
-#Home {
-    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(background4.png); /* Replace with your image */
-    max-width: 100%; /* Ensure image fits within its container */
-    height: auto;
-    border-radius: 8px; /* Slightly rounded corners for the image */
-    margin-bottom: 15px;
-    border: 2px solid #009688; /* Accent border */
-}
-
-.home-content h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-.home-content p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    margin-bottom: 30px;
-}
-
-.home-content ul {
-    list-style: none;
-    padding: 0;
-}
-
-.home-content li {
-    margin-bottom: 10px;
-}
-
-
-/* --- Amenities Section - Collage Styling --- */
-
-#Amenities {
-    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(amenities4.jpg); /* Replace with your image */
-}
-
-#Amenities h1 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: #fff;
-}
-
-.amenities-collage-container {
-    width: 90%;
-    max-width: 1000px;
-    height: 600px;
-    position: relative;
-    margin: 40px auto;
-    border: 3px solid #009688;
-    border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-}
-
-.collage-img {
-    position: absolute;
-    object-fit: cover;
-    border: 3px solid #eee;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    transition: transform 0.4s ease-in-out, z-index 0.3s ease-in-out;
-}
-
-.collage-img:hover {
-    transform: scale(1.3) rotate(0deg) !important;
-    z-index: 20;
-}
-
-/* Individual image positioning and sizing (customize these values!) */
-.img-1 {
-    width: 45%;
-    height: 50%;
-    top: 5%;
-    left: 5%;
-    transform: rotate(-5deg);
-    z-index: 2;
-}
-
-.img-2 {
-    width: 40%;
-    height: 55%;
-    top: 15%;
-    right: 8%;
-    transform: rotate(10deg);
-    z-index: 3;
-}
-
-.img-3 {
-    width: 35%;
-    height: 45%;
-    bottom: 10%;
-    left: 20%;
-    transform: rotate(3deg);
-    z-index: 1;
-}
-
-.img-4 {
-    width: 30%;
-    height: 40%;
-    bottom: 5%;
-    right: 25%;
-    transform: rotate(-12deg);
-    z-index: 4;
-}
-
-/* Adjust text styles for the Amenities section */
-#Amenities p,
-#Amenities ul {
-    color: #fff;
-    margin-top: 80px;
-}
-
-#Amenities ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-}
-
-#Amenities li {
-    margin-bottom: 8px;
-    font-size: 1.1rem;
-}
-
-/* --- Contact Us Section --- */
-#ContactUs {
-    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(contactus2.png); /* Replace with your image */
-}
-
-#ContactUs h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.social-links {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.social-links li {
-    margin: 0 1rem;
-}
-
-.social-links a {
-    color: #fff;
-    font-size: 2rem;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-    color: #009688;
-}
-
-.social-links li:last-child {
-    margin-left: 2rem;
-    font-size: 1.2rem;
-}
-
-/* --- Return Home Button (General) --- */
-.return-home {
-    height: 50px;
-    padding: 0.75rem 1.5rem;
-    border-radius: 25px;
-    font-weight: bold;
-    border: 2px solid #009688;
-    background: transparent;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-    margin-top: 40px;
-    z-index: 2;
-}
-
-.return-home:hover {
-    background-color: #009688;
-    border-color: #009688;
-}
-
-/* --- Booking Page Styles --- */
-.booking-section {
-    background-image: linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60)), url(background3.png); /* Use the desired image here */
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    padding-top: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
-}
-
-.booking-content {
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 30px 40px;
-    border-radius: 10px 10px 0 0;
-    width: 90%;
-    max-width: 800px;
-    margin-top: auto;
-    z-index: 2;
-    color: #333;
-    text-align: left;
-    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.booking-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    color: #000;
-    text-align: center;
-    width: 100%;
-}
-
-.booking-content p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 25px;
-    color: #555;
-    text-align: center;
-}
-
-/* Form Styling */
-.booking-form {
-    width: 100%;
-    max-width: 600px;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-}
-
-.form-group label {
-    margin-bottom: 8px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #333;
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="tel"],
-.form-group input[type="date"],
-.form-group textarea {
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    width: 100%;
-    background-color: #f9f9f9;
-    color: #333;
-}
-
-.form-group input[type="date"] {
-    -webkit-appearance: none;
-    appearance: none;
-    cursor: pointer;
-}
-
-.form-group input[type="file"] {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    color: #333;
-    cursor: pointer;
-}
-
-/* Style for displaying calculated nights */
-#nights-display {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #009688;
-    margin-top: 10px;
-    text-align: center;
-}
-
-.form-submit-btn {
-    background-color: #009688;
-    color: #fff !important;
-    padding: 0.8rem 2rem;
-    border-radius: 25px;
-    border: none;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
-    width: fit-content;
-    align-self: center;
-}
-
-.form-submit-btn:hover {
-    background-color: #007066;
-}
-
-/* --- New Rates Section Styles --- */
-#Rates {
-    background-image: linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60)), url(background2.png); /* Placeholder background image */
-    background-attachment: fixed; /* Optional: parallax effect */
-    min-height: 100vh; /* Ensure it's tall enough */
-    padding: 150px 50px 80px; /* Consistent padding */
-    justify-content: center; /* Center content vertically */
-}
-
-#Rates h1 {
-    font-size: 3rem; /* Prominent title */
-    margin-bottom: 40px;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Add text shadow for readability */
-}
-
-.rates-container {
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-    justify-content: center; /* Center the images */
-    gap: 30px; /* Space between the images */
-    width: 90%;
-    max-width: 1200px; /* Max width for the image container */
-    margin-top: 40px;
-}
-
-.rate-card {
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background for the image */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.5); /* Stronger shadow to pop out */
-    text-align: center;
-    width: 45%; /* Approximately half width for two cards, adjusted with gap */
-    max-width: 500px; /* Max width for a single card */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
-}
-
-.rate-card:hover {
-    transform: translateY(-10px) scale(1.02); /* Lift and slightly enlarge on hover */
-    box-shadow: 0 12px 24px rgba(0,0,0,0.7);
-}
-
-.rate-card img {
-    max-width: 100%; /* Ensure image fits within its container */
-    height: auto;
-    border-radius: 8px; /* Slightly rounded corners for the image */
-    margin-bottom: 15px;
-    border: 2px solid #009688; /* Accent border */
-}
-
-.rate-card h2 {
-    color: #009688; /* Highlight color for title */
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
-
-.rate-card p {
-    color: #333;
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 1000px) {
-    section {
-        padding-top: 120px;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-    #Home h1, #Rates h1, #Amenities h1, #ContactUs h1, .relax-content h1, .booking-content h1 {
-        font-size: 2rem;
-    }
-    .amenities-collage-container {
-        height: auto;
-        width: 95%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        border: none;
-    }
-
-    .collage-img {
-        position: static;
-        width: 90% !important;
-        height: auto !important;
-        margin: 10px auto;
-        transform: none !important;
-        box-shadow: none;
-    }
-    .booking-content {
-        width: 100%;
-        padding: 20px;
-        border-radius: 0;
-    }
-    .rate-card {
-        width: 90%; /* On smaller screens, cards stack and take more width */
-        max-width: none; /* Remove max-width constraint */
-    }
-    .rates-container {
-        flex-direction: column; /* Stack cards vertically */
-        align-items: center;
-        gap: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    section {
-        padding-top: 100px;
-    }
-    .booking-content {
-        padding: 15px;
-    }
-    .form-group input[type="text"],
-    .form-group input[type="email"],
-    .form-group input[type="tel"],
-    .form-group input[type="date"],
-    .form-group textarea,
-    .form-group input[type="file"] {
-        padding: 10px;
-    }
-    .rate-card {
-        padding: 15px;
-    }
-}
-/* --- Responsive Adjustments for Smaller Screens --- */
-
-/* For screens smaller than 768px (e.g., tablets in portrait, larger phones) */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column; /* Stack logo and nav links vertically */
-        align-items: flex-start; /* Align items to the start */
-        padding: 1rem 5%; /* Adjust padding */
-        width: 100%; /* Ensure it takes full width */
-    }
-
-    .navbar ul {
-        width: 100%; /* Take full width */
-        flex-direction: column; /* Stack nav items vertically */
-        align-items: center; /* Center the stacked nav items */
-        margin-top: 1rem; /* Add space below logo */
-    }
-
-    .navbar ul li {
-        margin: 0.5rem 0; /* Adjust vertical spacing for list items */
-    }
-
-    .logo {
-        margin-bottom: 0.5rem; /* Space between logo and stacked nav */
-    }
-
-    /* Adjust logo images if they are too big */
-    .logo img {
-        height: 60px; /* Smaller main logo */
-    }
-    .logo-text-img {
-        height: 40px; /* Smaller text logo */
-        margin-left: 10px; /* Adjust spacing */
-    }
-
-    /* General section adjustments */
-    section {
-        padding: 4rem 5%; /* Adjust padding for sections */
-    }
-
-    /* Home section text */
-    .home-content h1 {
-        font-size: 2rem; /* Smaller heading */
-    }
-    .home-content p {
-        font-size: 1rem; /* Smaller paragraph text */
-    }
-    .home-content ul li {
-        font-size: 0.9rem; /* Smaller list items */
-    }
-
-    /* Rates and Amenities containers */
-    .rates-container,
-    .amenities-collage-container {
-        flex-direction: column; /* Stack rate cards/collage images vertically */
-        align-items: center; /* Center them */
-    }
-
-    .rate-card {
-        width: 90%; /* Make rate cards take more width */
-        margin-bottom: 2rem; /* Add space between stacked cards */
-    }
-
-    .collage-img {
-        width: 90%; /* Make collage images take more width */
-        height: auto; /* Maintain aspect ratio */
-        margin-bottom: 1rem; /* Space between stacked images */
-    }
-
-    /* Contact Us social links */
-    .social-links {
-        flex-direction: column; /* Stack social icons vertically */
-    }
-
-    .social-links li {
-        margin: 0.5rem 0; /* Adjust vertical spacing */
-    }
-
-    .social-links a, .social-links span {
-        font-size: 1.5rem; /* Smaller icons/text */
-    }
-}
-
-/* For even smaller screens, like typical mobile phones (max-width 480px or 600px) */
-@media (max-width: 480px) {
-    .home-content h1 {
-        font-size: 1.5rem;
-    }
-
-    .book-now-btn {
-        padding: 0.8rem 1.5rem; /* Slightly smaller button padding */
-        font-size: 0.9rem; /* Smaller button text */
-    }
-}
-/* General Header/Navbar Styles (ensure these are present or updated) */
-header {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    padding: 1rem 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
-}
-
-.navbar {
     width: 85%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Space out logo and the rest */
     align-items: center;
     padding: 0 1rem; /* Added padding to prevent content touching edges */
 }
 
-.logo a {
-    display: flex; /* Use flexbox for the logo and text logo alignment */
+/* Corrected .logo styles - uses flexbox for proper alignment of logo images */
+.logo {
+    display: flex; /* Use flexbox to align logo image and text image */
     align-items: center; /* Vertically center them */
+    flex-shrink: 0; /* Prevent logo from shrinking */
+}
+
+.logo a {
+    display: flex; /* Makes the link wrap the images properly */
+    align-items: center;
     text-decoration: none;
 }
 
 .logo img {
-    height: 100px; /* Adjust as needed for your main logo */
+    height: 100px; /* Adjust the height as needed */
     max-width: none; /* Prevent this image from becoming 100% width on mobile too early */
 }
 
@@ -676,9 +55,11 @@ header {
     max-width: none; /* Prevent this image from becoming 100% width on mobile too early */
 }
 
+/* Desktop Navigation Links */
 .navbar ul {
     list-style: none;
     display: flex;
+    align-items: center;
     margin: 0;
     padding: 0;
 }
@@ -696,25 +77,25 @@ header {
 }
 
 .navbar ul li a:hover {
-    color: #ddd;
+    color: #009688; /* Changed hover color to match book-now-btn */
 }
 
 /* Book Now button style */
 .book-now-btn {
-    background-color: #007bff; /* Example blue */
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
+    background-color: #009688;
+    color: #fff !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
     text-decoration: none;
     transition: background-color 0.3s ease;
+    white-space: nowrap; /* Prevent button text from wrapping */
 }
 
 .book-now-btn:hover {
-    background-color: #0056b3;
+    background-color: #007066;
 }
 
-
-/* --- Collapsible Menu Specific Styles --- */
+/* --- Collapsible Menu Specific Styles (Revisited for Logo + Hamburger Only) --- */
 
 /* Hide the hamburger icon by default on large screens */
 .menu-toggle {
@@ -725,23 +106,310 @@ header {
     text-decoration: none;
 }
 
-/* Styles for the navigation links container */
+/* Default desktop display for nav-links */
 .nav-links {
-    /* On large screens, this doesn't need specific styles here */
+    display: flex; /* Display as flex for desktop nav links */
+    align-items: center; /* Vertically align them */
+    /* No absolute positioning or max-height on desktop */
 }
 
-/* Media Queries for Mobile View */
+/* General Section Styles */
+section {
+    width: 100%;
+    min-height: 100vh;
+    padding: 80px 50px; /* Add padding to avoid overlap with fixed header */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* --- Slideshow Styles (Home Section) --- */
+#Home {
+    /* Remove background-image from #Home as it's now handled by .mySlides img */
+    /* Remove linear-gradient */
+    background-color: #000; /* Fallback background for slideshow container */
+    margin-bottom: 0; /* Remove margin-bottom */
+
+    position: relative;
+    width: 100%;
+    max-width: 100vw; /* Ensure it takes full viewport width */
+    height: 100vh; /* Full viewport height for the slideshow */
+    overflow: hidden;
+    padding: 0; /* Remove padding to make it truly full screen */
+    display: flex; /* Use flex to help align content if needed */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.mySlides {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.mySlides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the entire container */
+    filter: brightness(60%); /* Darken image for text readability */
+}
+
+.slide-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    z-index: 2; /* Ensure text is above darkened image */
+    text-align: center;
+    width: 80%; /* Control text width */
+}
+
+.slide-text h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.slide-text p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Fade animation for slideshow */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s; /* Duration of the fade transition */
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+/* Dots for slideshow navigation */
+.slide-dots {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    z-index: 3; /* Ensure dots are above other content */
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active-dot, .dot:hover {
+    background-color: #717171;
+}
+
+/* Amenities Section */
+#Amenities {
+    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(amenities4.jpg); /* Replace with your image */
+    padding-top: 80px; /* Ensure space for fixed header */
+}
+
+.amenities-section h1 { /* Changed from .amenities-content h1 */
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.amenities-section p { /* Changed from .amenities-content p */
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.amenities-section ul { /* Changed from .amenities-content ul */
+    list-style: none;
+    padding: 0;
+}
+
+.amenities-section li { /* Changed from .amenities-content li */
+    margin-bottom: 10px;
+}
+
+/* Collage images in Amenities */
+.amenities-collage-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Space between images */
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.collage-img {
+    width: 45%; /* Adjust width for 2 columns */
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.collage-img:hover {
+    transform: scale(1.03);
+}
+
+
+/* Rates Section */
+#Rates {
+    background-color: #f8f8f8; /* Light background for rates section */
+    color: #333; /* Dark text for contrast */
+    padding-top: 80px; /* Ensure space for fixed header */
+}
+
+#Rates h1 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.rates-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.rate-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 25px;
+    text-align: center;
+    width: 45%; /* Adjust width for 2 columns */
+    max-width: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rate-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.rate-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.rate-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #009688;
+}
+
+.rate-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.rate-card .book-now-btn {
+    display: inline-block; /* Ensure button is inline-block */
+    background-color: #009688;
+    color: #fff !important;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.rate-card .book-now-btn:hover {
+    background-color: #007066;
+}
+
+/* Contact Us Section */
+#ContactUs {
+    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(contactus.jpg); /* Changed to use uploaded contactus.jpg */
+    padding-top: 80px; /* Ensure space for fixed header */
+}
+
+#ContactUs h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the icons */
+    margin-top: 30px;
+}
+
+.social-links li {
+    margin: 0 1rem;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 2rem; /* Adjust icon size */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #009688;
+}
+
+.social-links li:last-child {
+    margin-left: 2rem; /* Add some space before the mobile number */
+    font-size: 1.2rem;
+    color: #fff; /* Ensure mobile number text is white */
+}
+
+.return-home {
+    height: 50px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #009688;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    margin-top: 40px; /* Increased margin-top */
+}
+
+.return-home:hover {
+    background-color: #009688;
+    border-color: #009688;
+}
+
+
+/* --- Mobile Media Queries (Revisited for Logo + Hamburger Only) --- */
 @media (max-width: 768px) {
     .navbar {
-        flex-wrap: wrap; /* Allow items to wrap */
-        justify-content: space-between; /* Space logo and toggle */
-        padding: 1rem; /* Adjust padding for mobile */
+        flex-wrap: nowrap; /* Prevent wrapping to keep logo and toggle on one line */
+        justify-content: space-between; /* Push logo left, toggle right */
+        padding: 1rem;
     }
 
-    .logo {
-        flex-shrink: 0; /* Prevent logo from shrinking */
-    }
-
+    /* Logo scaling for mobile */
     .logo img {
         height: 60px; /* Smaller main logo on mobile */
     }
@@ -751,27 +419,37 @@ header {
     }
 
     .menu-toggle {
-        display: block; /* Show hamburger icon on mobile */
+        display: block; /* Show hamburger on mobile */
+        font-size: 2rem;
+        color: #fff;
+        cursor: pointer;
+        text-decoration: none;
+        /* `order: 2` and `margin-left: auto` are no longer needed if `justify-content: space-between` is enough */
     }
 
+    /* Hide desktop nav links on mobile and prepare for collapse */
     .nav-links {
-        width: 100%; /* Take full width */
         max-height: 0; /* Initially hidden */
-        overflow: hidden; /* Hide overflowing content */
+        overflow: hidden;
         transition: max-height 0.3s ease-out; /* Smooth transition for opening/closing */
         background-color: rgba(0, 0, 0, 0.9); /* Background for the mobile menu */
-        flex-basis: 100%; /* Ensure it takes full width below logo/toggle */
+        position: absolute; /* Position over content */
+        top: 100%; /* Below the header */
+        left: 0;
+        width: 100%;
+        display: block; /* Change display for mobile menu context */
+        z-index: 99; /* Below the header, above page content */
     }
 
     .nav-links.active { /* Class added by JavaScript when menu is open */
-        max-height: 300px; /* Adjust this value based on your menu's content height */
-        /* A larger value than actual height ensures it expands fully */
+        max-height: 350px; /* Adjust this value based on your menu's content height, increased slightly */
     }
 
     .nav-links ul {
         flex-direction: column; /* Stack menu items vertically */
         align-items: center; /* Center menu items */
         padding: 1rem 0; /* Add vertical padding inside the menu */
+        width: 100%; /* Ensure full width */
     }
 
     .nav-links ul li {
@@ -782,22 +460,19 @@ header {
         font-size: 1.2rem; /* Larger font size for mobile menu links */
         padding: 10px 0; /* Ensure clickable area is large */
         display: block; /* Make links take full width for easier tapping */
+        width: 100%; /* Ensure links are fully tappable */
+        text-align: center;
     }
 
-    /* Adjust padding for sections to prevent horizontal scrolling */
-    section {
-        padding: 4rem 1rem; /* Smaller padding on mobile */
+    /* Adjustments for slideshow text on mobile */
+    .slideshow-container {
+        height: 70vh; /* Adjust height for mobile if needed */
     }
-
-    /* Home section text */
-    .home-content h1 {
-        font-size: 2rem; /* Smaller heading */
+    .slide-text h1 {
+        font-size: 2rem; /* Smaller heading on mobile */
     }
-    .home-content p {
-        font-size: 1rem; /* Smaller paragraph text */
-    }
-    .home-content ul li {
-        font-size: 0.9rem; /* Smaller list items */
+    .slide-text p {
+        font-size: 1rem; /* Smaller paragraph on mobile */
     }
 
     /* Rates and Amenities containers */
@@ -829,5 +504,17 @@ header {
 
     .social-links a, .social-links span {
         font-size: 1.5rem; /* Smaller icons/text */
+    }
+}
+
+@media (max-width: 480px) {
+    .slideshow-container {
+        height: 60vh; /* Even smaller height for tiny screens */
+    }
+    .slide-text h1 {
+        font-size: 1.5rem;
+    }
+    .slide-text p {
+        font-size: 0.9rem;
     }
 }

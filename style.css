@@ -132,7 +132,7 @@ section {
 #Home {
     /* Remove background-image from #Home as it's now handled by .mySlides img */
     /* Remove linear-gradient */
-    background-color: #000; /* Fallback background for slideshow container */
+    background-color: oklch(95.444% 0.0032 15.346); /* Fallback background for slideshow container */
     margin-bottom: 0; /* Remove margin-bottom */
 
     position: relative;
@@ -187,7 +187,7 @@ section {
 /* Fade animation for slideshow */
 .fade {
     animation-name: fade;
-    animation-duration: 1.5s; /* Duration of the fade transition */
+    animation-duration: 2s; /* Duration of the fade transition */
 }
 
 @keyframes fade {

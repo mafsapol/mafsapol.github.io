@@ -221,9 +221,9 @@ section {
 
 /* --- Amenities Section Specific Styles --- */
 #Amenities {
-    /* Keep existing background-image and padding */
-    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(amenities4.jpg); /* Your background */
-    padding-top: 80px;
+    background-color: #f8f8f8; /* Light background for rates section */
+    color: #333; /* Dark text for contrast */
+    padding-top: 80px; /* Ensure space for fixed header */
     /* Ensure flex properties if needed for internal alignment */
     display: flex;
     flex-direction: column;

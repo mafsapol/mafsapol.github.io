@@ -222,9 +222,8 @@ section {
 /* --- Amenities Section Specific Styles --- */
 #Amenities {
     background-color: #b58d60; /* Light background for rates section */
-    color: #808080; /* Dark text for contrast */
+    color: #333; /* Dark text for contrast */
     padding-top: 80px; /* Ensure space for fixed header */
-    /* Ensure flex properties if needed for internal alignment */
     display: flex;
     flex-direction: column;
     justify-content: center;

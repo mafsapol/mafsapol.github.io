@@ -367,7 +367,7 @@ section {
 
 /* Rates Section */
 #Rates {
-    background-color: #f8f8f8; /* Light background for rates section */
+    background-color: #f7ecd4; /* Light background for rates section */
     color: #333; /* Dark text for contrast */
     padding-top: 80px; /* Ensure space for fixed header */
 }

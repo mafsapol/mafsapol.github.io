@@ -132,7 +132,7 @@ section {
 #Home {
     /* Remove background-image from #Home as it's now handled by .mySlides img */
     /* Remove linear-gradient */
-    background-color: oklch(95.444% 0.0032 15.346); /* Fallback background for slideshow container */
+    background-color: rgb(0, 0, 8); /* Fallback background for slideshow container */
     margin-bottom: 0; /* Remove margin-bottom */
 
     position: relative;

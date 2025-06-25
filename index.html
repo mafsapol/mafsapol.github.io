@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Page</title>
+    <title>Hiraya Private Resort</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -13,7 +13,7 @@
         <div class="logo">
             <a href="#Home">
                 <img src="hirayalogo3.jpg" alt="Hiraya Logo">
-                <img src="hirayalogo4.png" alt="Hiraya Private Resort Text Logo" class="logo-text-img">
+                <img src="0-02-06-7c5bd8008f08a1e0ec9bab948204b3dacc064ab180be44eb4b62ebdbb22a4b09_c04fef8f96f50b8c.png" alt="Hiraya Private Resort Text Logo" class="logo-text-img">
             </a>
         </div>
 
@@ -21,7 +21,8 @@
             <i class="fas fa-bars"></i>
         </a>
         
-        <div class="nav-links"> <ul>
+        <div class="nav-links"> 
+            <ul>
                 <li><a href="#Home">Home</a></li>
                 <li><a href="#Rates">Rates</a></li>
                 <li><a href="#Amenities">Amenities</a></li>
@@ -32,20 +33,38 @@
     </nav>
 </header>
 
-    <section id="Home">
-        <div class="home-content">
-            <h1>Welcome to Hiraya Private Resort</h1>
-            <p>Your tropical island life escape.</p>
-            <ul>
-                <li>2 Bedroom Villa</li>
-                <li>Private pool</li>
-                <li>Free breakfast</li>
-                <li>Affordable rates</li>
-            </ul>
+<section id="Home">
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="background.jpg" alt="Resort View 1">
+            <div class="slide-text"><h1>Welcome to Hiraya Private Resort</h1><p>Your tropical island life escape.</p></div>
         </div>
-    </section>
 
-    <section id="Amenities">
+        <div class="mySlides fade">
+            <img src="background2.jpg" alt="Resort View 2">
+            <div class="slide-text"><h1>Your Perfect Getaway Awaits</h1><p>Relax and rejuvenate in paradise.</p></div>
+        </div>
+
+        <div class="mySlides fade">
+            <img src="background3.jpg" alt="Resort View 3">
+            <div class="slide-text"><h1>Unforgettable Memories</h1><p>Create lasting moments with loved ones.</p></div>
+        </div>
+
+        <div class="mySlides fade">
+            <img src="background4.jpg" alt="Resort View 4">
+            <div class="slide-text"><h1>Experience Serenity</h1><p>Find your peace amidst nature's beauty.</p></div>
+        </div>
+
+        <div class="slide-dots">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+    </div>
+</section>
+
+<section id="Amenities">
     <div class="amenities-section">
         <h1>Our Amenities</h1>
         <p>Experience comfort and luxury with our wide range of facilities designed for your relaxation and enjoyment.</p>
@@ -53,22 +72,22 @@
         <div class="slideshow-container amenities-slideshow">
             <div class="mySlides-amenities fade">
                 <img src="amenities.jpg" alt="Swimming Pool">
-                <div class="slide-text"><h2>2-Bedroom Suite</h2><p>Relax with the whole family.</p></div>
+                <div class="slide-text"><h2>Private Swimming Pool</h2><p>Enjoy exclusive access to our refreshing pool.</p></div>
             </div>
 
             <div class="mySlides-amenities fade">
                 <img src="amenities2.jpg" alt="Spacious Living Area">
-                <div class="slide-text"><h2>Queen Size Bedroom</h2><p>Privacy for you and your loved one.</p></div>
+                <div class="slide-text"><h2>Spacious Living Area</h2><p>Comfortable spaces for family and friends.</p></div>
             </div>
 
             <div class="mySlides-amenities fade">
                 <img src="amenities3.jpg" alt="Outdoor Lounge">
-                <div class="slide-text"><h2>Exclusively yours.</h2><p>Relax and unwind exclusively for you.</p></div>
+                <div class="slide-text"><h2>Outdoor Lounge</h2><p>Relax and unwind in the fresh air.</p></div>
             </div>
 
             <div class="mySlides-amenities fade">
                 <img src="amenities4.jpg" alt="Comfortable Bedrooms">
-                <div class="slide-text"><h2>Swimming pool.</h2><p>Dip and enjoy our exclusive pool.</p></div>
+                <div class="slide-text"><h2>Comfortable Bedrooms</h2><p>Rest well in our cozy villa rooms.</p></div>
             </div>
 
             <div class="slide-dots-amenities">
@@ -92,74 +111,47 @@
         </ul>
     </div>
 </section>
-    <section id="Rates">
+
+<section id="Rates">
     <h1>Our Resort Rates</h1>
     <div class="rates-container">
         <div class="rate-card">
             <img src="rates1.jpg" alt="Day Use Rates">
             <h2>Day Use Packages</h2>
             <p>Enjoy our facilities from morning to late afternoon. Perfect for quick getaways!</p>
-            <a href="book.html?type=dayuse" class="book-now-btn">Book Day Use</a> </div>
+            <a href="book.html?type=dayuse" class="book-now-btn">Book Day Use</a> 
+        </div>
         <div class="rate-card">
             <img src="rates2.jpg" alt="Overnight Accommodations">
             <h2>Overnight Accommodations</h2>
             <p>Experience a peaceful night's rest in our comfortable accommodations.</p>
-            <a href="book.html?type=overnight" class="book-now-btn">Book Overnight</a> </div>
+            <a href="book.html?type=overnight" class="book-now-btn">Book Overnight</a> 
+        </div>
     </div>
     <a href="#Home" class="return-home">Back to Top</a>
-    </section>
+</section>
 
-    <section id="ContactUs">
-        <h1>Contact us now!</h1>
-        <ul class="social-links">
-            <li><a href="https://www.facebook.com/hirayaprivateresort/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-square"></i></a></li>
-            <li><a href="https://www.tiktok.com/@hirayaprivateresort" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a></li>
-            <li><a href="mailto:hiraya.pr@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
-            <li><span>Mobile: 09991112233</span></li>
-        </ul>
-        <button class="return-home" data-section="Home">Return to Home</button>
-    </section>
+<section id="ContactUs">
+    <h1>Contact us now!</h1>
+    <ul class="social-links">
+        <li><a href="https://www.facebook.com/hirayaprivateresort/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-square"></i></a></li>
+        <li><a href="https://www.tiktok.com/@hirayaprivateresort" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a></li>
+        <li><a href="mailto:hiraya.pr@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+        <li><span>Mobile: 09991112233</span></li>
+    </ul>
+    <button class="return-home" data-section="Home">Return to Home</button>
+</section>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const returnHomeButtons = document.querySelectorAll('.return-home');
-            returnHomeButtons.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const targetSectionId = this.dataset.section;
-                    if (targetSectionId) {
-                        const targetSection = document.getElementById(targetSectionId);
-                        if (targetSection) {
-                            targetSection.scrollIntoView({ behavior: 'smooth' });
-                        } else {
-                            window.location.href = 'index.html'; // Fallback if section doesn't exist on the page
-                        }
-                    } else {
-                        window.location.href = 'index.html'; // Default action if no data-section
-                    }
-                });
-            });
-
-            // Smooth scrolling for navigation links
-            const navLinks = document.querySelectorAll('.navbar a[href^="#"]');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        });
-    </script>
-    <div id="lightbox-overlay">
+<div id="lightbox-overlay">
     <span class="lightbox-close">&times;</span>
     <img id="lightbox-image" src="" alt="Enlarged Image">
 </div>
+
 <div data-tockify-component="calendar" data-tockify-calendar="hirayaprivateresort"></div>
-<script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js">
+<script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js"></script>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
     // --- Header Menu Toggle ---
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -178,7 +170,6 @@
             });
         });
     }
-</script>
 
     // --- Generic Slideshow Logic for Multiple Slideshows ---
     function initSlideshow(containerClass, slideClass, dotClass) {
@@ -227,7 +218,6 @@
         }
 
         // Attach manual dot click handlers (needs to be global or attached to window)
-        // For simplicity and direct use with onclick in HTML, we'll expose global functions
         if (containerClass === 'slideshow-container') { // Home Slideshow
             window.currentSlide = showSlidesManual;
         } else if (containerClass === 'amenities-slideshow') { // Amenities Slideshow
@@ -267,16 +257,44 @@
         });
     });
 
-    // --- Simple Lightbox (if you have one, keep it here) ---
-    // Example: if you have a simple image gallery where clicking expands image
-    // const galleryItems = document.querySelectorAll('.gallery-item');
-    // if (galleryItems) {
-    //     galleryItems.forEach(item => {
-    //         item.addEventListener('click', function() {
-    //             // Lightbox logic
-    //         });
-    //     });
-    // }
+    // --- Return Home Button Fix ---
+    const returnHomeButtons = document.querySelectorAll('button.return-home');
+    returnHomeButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const targetSectionId = this.dataset.section;
+            if (targetSectionId) {
+                const targetSection = document.getElementById(targetSectionId);
+                if (targetSection) {
+                    const headerOffset = 100; // Match the offset used for smooth scrolling
+                    const elementPosition = targetSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                } else {
+                    window.location.href = 'index.html'; // Fallback if section doesn't exist
+                }
+            } else {
+                window.location.href = 'index.html'; // Default action if no data-section
+            }
+        });
+    });
+
+    // Handle the `a` tag return-home link as well
+    const aReturnHomeLink = document.querySelector('a.return-home');
+    if (aReturnHomeLink) {
+        aReturnHomeLink.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default anchor behavior
+            const targetSection = document.getElementById('Home'); // Always scroll to Home for this link
+            if (targetSection) {
+                const headerOffset = 100;
+                const elementPosition = targetSection.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+            } else {
+                window.location.href = 'index.html';
+            }
+        });
+    }
+
 });
 </script>
 </body>

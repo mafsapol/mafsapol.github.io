@@ -439,7 +439,7 @@ section {
 
 /* Contact Us Section */
 #ContactUs {
-    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(contactus.jpg); /* Changed to use uploaded contactus.jpg */
+    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(contactus2.png); /* Changed to use uploaded contactus.jpg */
     padding-top: 80px; /* Ensure space for fixed header */
 }
 

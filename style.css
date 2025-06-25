@@ -221,7 +221,7 @@ section {
 
 /* --- Amenities Section Specific Styles --- */
 #Amenities {
-    background-color: #b58d60; /* Light background for rates section */
+    background-color: #f7ecd4; /* Light background for rates section */
     color: #333; /* Dark text for contrast */
     padding-top: 80px; /* Ensure space for fixed header */
     display: flex;
@@ -366,7 +366,7 @@ section {
 
 /* Rates Section */
 #Rates {
-    background-color: #b58d60; /* Light background for rates section */
+    background-color: #f7ecd4; /* Light background for rates section */
     color: #333; /* Dark text for contrast */
     padding-top: 80px; /* Ensure space for fixed header */
 }

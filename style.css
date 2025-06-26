@@ -216,13 +216,13 @@ section {
 }
 
 .active-dot, .dot:hover {
-    background-color: #717171;
+    background-color: #808080;
 }
 
 /* --- Amenities Section Specific Styles --- */
 #Amenities {
     background-color: #f7ecd4; /* Light background for rates section */
-    color: #333; /* Dark text for contrast */
+    color: #808080; /* Dark text for contrast */
     padding-top: 80px; /* Ensure space for fixed header */
     display: flex;
     flex-direction: column;
@@ -240,14 +240,14 @@ section {
 .amenities-section h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #fff;
+    color: #808080;
 }
 
 .amenities-section p {
     font-size: 1.2rem;
     line-height: 1.6;
     margin-bottom: 30px; /* Space before slideshow */
-    color: #fff;
+    color: #808080;
 }
 
 .amenities-section ul {

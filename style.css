@@ -247,7 +247,7 @@ section {
     font-size: 1.2rem;
     line-height: 1.6;
     margin-bottom: 30px; /* Space before slideshow */
-    color: #916d44;
+    color: #f7ecd4;
 }
 
 .amenities-section ul {
@@ -257,7 +257,7 @@ section {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    color: #fff;
+    color: #f7ecd4;
 }
 
 .amenities-section li {

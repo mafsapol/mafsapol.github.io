@@ -799,3 +799,18 @@ section {
         font-size: 1rem;
     }
 }
+.phone-number-text {
+    display: block; /* Show by default (desktop) */
+}
+.call-icon {
+    display: none; /* Hide by default (desktop) */
+}
+
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+    .phone-number-text {
+        display: none; /* Hide text on mobile */
+    }
+    .call-icon {
+        display: block; /* Show icon on mobile */
+    }
+}

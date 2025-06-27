@@ -613,3 +613,189 @@ section {
         font-size: 0.9rem;
     }
 }
+/* Booking Section Styles */
+.booking-section {
+    /* Use a background image from your assets or a solid color for the booking page */
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('booking background.jpg'); /* Example: Use an image like booking background.jpg */
+    background-size: cover;
+    background-position: center;
+    color: #fff; /* Default text color for the section */
+    padding-top: 120px; /* Adjust based on header height to prevent overlap */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Center the text content */
+}
+
+.booking-content {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background for the form container */
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 600px; /* Max width for the form */
+    margin-bottom: 30px; /* Space before the return home button */
+    color: #333; /* Dark text inside the form container for readability */
+    text-align: left; /* Align form text to the left */
+}
+
+.booking-content h1 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: #916d44; /* A contrasting color for headings */
+    text-align: center;
+}
+
+.booking-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    color: #555;
+    text-align: center;
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block; /* Make labels appear on their own line */
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333; /* Ensure label text is dark and visible */
+    font-size: 1.05rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group input[type="number"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333; /* Ensure input text is dark and visible */
+    background-color: #f9f9f9; /* Light background for input fields */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 10px 0; /* Adjust padding for file input */
+    color: #555; /* Text color for the file input */
+    font-size: 1rem;
+    /* File input styling is tricky; you might need custom button styling */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #009688; /* Highlight on focus */
+    box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.2);
+    outline: none; /* Remove default outline */
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 80px;
+}
+
+/* Style for the "Duration: X night(s)" display */
+#nights-display {
+    text-align: center;
+    margin-top: -10px; /* Pull it slightly up to be closer to date fields */
+    margin-bottom: 20px;
+    font-style: italic;
+    color: #666; /* Slightly lighter text for supplemental info */
+    font-size: 0.95rem;
+}
+
+.form-submit-btn {
+    background-color: #009688;
+    color: #fff;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+    width: fit-content; /* Make button width fit its content */
+    align-self: center; /* Center the button within the flex column */
+}
+
+.form-submit-btn:hover {
+    background-color: #007066;
+    transform: translateY(-2px);
+}
+
+/* Thank you message styles */
+#thank-you-message {
+    text-align: center;
+    color: #333; /* Ensure thank you message text is readable */
+}
+
+#thank-you-message h1 {
+    color: #009688;
+    margin-bottom: 20px;
+}
+
+#thank-you-message p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Return Home button specific to the booking page */
+.booking-section .return-home {
+    margin-top: 30px; /* Space below the booking form/thank you message */
+    background-color: transparent;
+    border: 2px solid #fff; /* White border for contrast on dark background */
+    color: #fff; /* White text */
+}
+
+.booking-section .return-home:hover {
+    background-color: #009688;
+    border-color: #009688;
+}
+
+/* Media Queries for Booking Form Responsiveness */
+@media (max-width: 768px) {
+    .booking-content {
+        padding: 25px;
+        width: 95%; /* Take up more width on smaller screens */
+    }
+
+    .booking-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .booking-content p {
+        font-size: 0.9rem;
+    }
+
+    .form-group label {
+        font-size: 1rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    .form-submit-btn {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+}

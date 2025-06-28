@@ -2,7 +2,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
 
@@ -11,7 +11,7 @@ body {
 }
 
 header {
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent header */
+    background-color: rgba(30, 25, 20, 0.9); /* Semi-transparent header */
     color: #fff;
     padding: 1rem 0;
     position: fixed; /* Fixed header */
@@ -77,12 +77,12 @@ header {
 }
 
 .navbar ul li a:hover {
-    color: #009688; /* Changed hover color to match book-now-btn */
+    color: #b58d60; /* Changed hover color to match book-now-btn */
 }
 
 /* Book Now button style */
 .book-now-btn {
-    background-color: #009688;
+    background-color: #916d44;
     color: #fff !important;
     padding: 0.75rem 1.5rem;
     border-radius: 25px;
@@ -92,7 +92,7 @@ header {
 }
 
 .book-now-btn:hover {
-    background-color: #007066;
+    background-color: #7a5b37;
 }
 
 /* --- Collapsible Menu Specific Styles (Revisited for Logo + Hamburger Only) --- */
@@ -175,11 +175,13 @@ section {
 }
 
 .slide-text h1 {
+    color: #fff;
     font-size: 3.5rem;
     margin-bottom: 1rem;
 }
 
 .slide-text p {
+    color: #fff;
     font-size: 1.5rem;
     line-height: 1.6;
 }
@@ -222,7 +224,7 @@ section {
 /* --- Amenities Section Specific Styles --- */
 #Amenities {
     background-color: #f7ecd4; /* Light background for rates section */
-    color: #f7ecd4; /* Dark text for contrast */
+    color: #333; /* Dark text for contrast */
     padding-top: 80px; /* Ensure space for fixed header */
     display: flex;
     flex-direction: column;
@@ -247,7 +249,7 @@ section {
     font-size: 1.2rem;
     line-height: 1.6;
     margin-bottom: 30px; /* Space before slideshow */
-    color: #f7ecd4;
+    color: #808080;
 }
 
 .amenities-section ul {
@@ -306,11 +308,13 @@ section {
 }
 
 .amenities-slideshow .slide-text h2 {
+    color: #fff;
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
 }
 
 .amenities-slideshow .slide-text p {
+    color: #fff;
     font-size: 1.2rem;
     line-height: 1.4;
     margin-bottom: 0; /* No margin bottom */
@@ -330,14 +334,14 @@ section {
     height: 12px; /* Slightly smaller dots */
     width: 12px;
     margin: 0 3px;
-    background-color: #bbb;
+    background-color: #b58d60;
     border-radius: 50%;
     display: inline-block;
     transition: background-color 0.6s ease;
 }
 
 .active-dot-amenities, .dot-amenities:hover {
-    background-color: #717171;
+    background-color: #916d44;
 }
 
 /* Mobile Responsiveness for Amenities Section */
@@ -374,7 +378,7 @@ section {
 #Rates h1 {
     font-size: 2.5rem;
     margin-bottom: 40px;
-    color: #333;
+    color: #916d44;
 }
 
 .rates-container {
@@ -411,19 +415,19 @@ section {
 .rate-card h2 {
     font-size: 1.8rem;
     margin-bottom: 15px;
-    color: #009688;
+    color: #916d44;
 }
 
 .rate-card p {
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 25px;
-    color: #555;
+    color: #808080;
 }
 
 .rate-card .book-now-btn {
     display: inline-block; /* Ensure button is inline-block */
-    background-color: #009688;
+    background-color: #916d44;
     color: #fff !important;
     padding: 10px 25px;
     border-radius: 25px;
@@ -433,16 +437,17 @@ section {
 }
 
 .rate-card .book-now-btn:hover {
-    background-color: #007066;
+    background-color: #7a5b37;
 }
 
 /* Contact Us Section */
 #ContactUs {
-    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(contactus2.png); /* Changed to use uploaded contactus.jpg */
+    background-image: linear-gradient(rgba(145,109,68,0.75), rgba(145,109,68,0.75)), url(contactus2.png); /* Changed to use uploaded contactus.jpg */
     padding-top: 80px; /* Ensure space for fixed header */
 }
 
 #ContactUs h1 {
+    color: #fff;
     font-size: 2.5rem;
     margin-bottom: 20px;
 }
@@ -468,7 +473,7 @@ section {
 }
 
 .social-links a:hover {
-    color: #009688;
+    color: #b58d60;
 }
 
 .social-links li:last-child {
@@ -482,7 +487,8 @@ section {
     padding: 0.75rem 1.5rem;
     border-radius: 25px;
     font-weight: bold;
-    border: 2px solid #009688;
+    border: 2px solid #916d44;
+    border-color: #916d44;
     background: transparent;
     color: #fff;
     cursor: pointer;
@@ -616,7 +622,7 @@ section {
 /* Booking Section Styles */
 .booking-section {
     /* Use a background image from your assets or a solid color for the booking page */
-    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('booking background.jpg'); /* Example: Use an image like booking background.jpg */
+    background-image: linear-gradient(rgba(145,109,68,0.6), rgba(145,109,68,0.6)), url('booking background.jpg'); /* Example: Use an image like booking background.jpg */
     background-size: cover;
     background-position: center;
     color: #fff; /* Default text color for the section */
@@ -685,7 +691,7 @@ section {
     border-radius: 5px;
     font-size: 1rem;
     color: #333; /* Ensure input text is dark and visible */
-    background-color: #f9f9f9; /* Light background for input fields */
+    background-color: #916d44; /* Light background for input fields */
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -700,8 +706,8 @@ section {
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: #009688; /* Highlight on focus */
-    box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.2);
+    border-color: #916d44; /* Highlight on focus */
+    box-shadow: 0 0 0 3px rgba(145, 109, 68, 0.2);
     outline: none; /* Remove default outline */
 }
 
@@ -721,7 +727,7 @@ section {
 }
 
 .form-submit-btn {
-    background-color: #009688;
+    background-color: #916d44;
     color: #fff;
     padding: 15px 25px;
     border: none;
@@ -736,7 +742,7 @@ section {
 }
 
 .form-submit-btn:hover {
-    background-color: #007066;
+    background-color: #7a5b37;
     transform: translateY(-2px);
 }
 
@@ -747,7 +753,7 @@ section {
 }
 
 #thank-you-message h1 {
-    color: #009688;
+    color: #916d44;
     margin-bottom: 20px;
 }
 
@@ -765,8 +771,8 @@ section {
 }
 
 .booking-section .return-home:hover {
-    background-color: #009688;
-    border-color: #009688;
+    background-color: #916d44;
+    border-color: #916d44;
 }
 
 /* Media Queries for Booking Form Responsiveness */
@@ -887,7 +893,7 @@ section {
     margin: 0 auto; /* Center the container */
     background-color: #fff; /* White background for the calendar area */
     border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     overflow: hidden; /* Ensures calendar content stays within bounds */
     padding: 20px; /* Padding inside the container */
     min-height: 600px; /* Give it a decent height, Tockify will adjust */

@@ -442,7 +442,7 @@ section {
 
 /* Contact Us Section */
 #ContactUs {
-    background-image: linear-gradient(rgba(145,109,68,0.75), rgba(145,109,68,0.75)), url(contactus2.png); /* Changed to use uploaded contactus.jpg */
+    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0, 0, 0, 0.75)), url(contactus2.png); /* Changed to use uploaded contactus.jpg */
     padding-top: 80px; /* Ensure space for fixed header */
 }
 
@@ -891,7 +891,7 @@ section {
     width: 90%; /* Adjust width as needed */
     max-width: 900px; /* Max width for larger screens */
     margin: 0 auto; /* Center the container */
-    background-color: #fff; /* White background for the calendar area */
+    background-color: #f7ecd4; /* White background for the calendar area */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     overflow: hidden; /* Ensures calendar content stays within bounds */

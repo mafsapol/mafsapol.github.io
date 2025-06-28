@@ -875,14 +875,14 @@ section {
 #AvailabilityCalendar h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #333;
+    color: #916d44;
 }
 
 #AvailabilityCalendar p {
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 30px;
-    color: #555;
+    color: #808080;
     max-width: 800px; /* Limit text width */
 }
 

@@ -814,3 +814,104 @@ section {
         display: block; /* Show icon on mobile */
     }
 }
+/* Styles for the new phone link within social links */
+.social-links .phone-link {
+    display: flex; /* Use flexbox to align icon and text */
+    align-items: center; /* Vertically center them */
+    color: #fff; /* White color for the link */
+    text-decoration: none;
+    font-size: 2rem; /* Matches other icons */
+    transition: color 0.3s ease;
+}
+
+.social-links .phone-link i {
+    margin-right: 10px; /* Space between icon and number */
+}
+
+.social-links .phone-link .phone-number-text {
+    font-size: 1.2rem; /* Readable font size for the number */
+    color: #fff; /* Ensure text is white */
+}
+
+.social-links .phone-link:hover {
+    color: #009688; /* Hover effect */
+}
+
+/* Adjustments for mobile if you want to hide the number and only show the icon */
+@media (max-width: 768px) {
+    .social-links .phone-link {
+        flex-direction: column; /* Stack icon and number if desired, or keep row */
+        margin: 0.5rem 0; /* Adjust spacing */
+    }
+
+    .social-links .phone-link .phone-number-text {
+        display: none; /* Hide the number text on small screens */
+        font-size: 1rem; /* Smaller font for remaining elements */
+    }
+    .social-links .phone-link i {
+        margin-right: 0; /* Remove margin if text is hidden */
+        margin-bottom: 5px; /* Add vertical space below icon if stacked */
+    }
+}
+/* New Section for Calendar */
+#AvailabilityCalendar {
+    background-color: #f7ecd4; /* Consistent with your #Rates background */
+    color: #333; /* Dark text for contrast */
+    padding-top: 80px; /* Space for fixed header */
+    padding-bottom: 50px; /* Bottom padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#AvailabilityCalendar h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#AvailabilityCalendar p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #555;
+    max-width: 800px; /* Limit text width */
+}
+
+/* Container for the embedded Tockify Calendar */
+.calendar-container {
+    width: 90%; /* Adjust width as needed */
+    max-width: 900px; /* Max width for larger screens */
+    margin: 0 auto; /* Center the container */
+    background-color: #fff; /* White background for the calendar area */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+    overflow: hidden; /* Ensures calendar content stays within bounds */
+    padding: 20px; /* Padding inside the container */
+    min-height: 600px; /* Give it a decent height, Tockify will adjust */
+    display: flex; /* Use flex to center iframe if needed */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Tockify-specific styling (limited due to iframe) */
+/* You would need to check Tockify's documentation for more specific embed options */
+/* to change colors, fonts, etc. within the calendar itself. */
+/* The styles below affect the container of the iframe, not its content directly. */
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    #AvailabilityCalendar h1 {
+        font-size: 2rem;
+    }
+    #AvailabilityCalendar p {
+        font-size: 1rem;
+    }
+    .calendar-container {
+        width: 95%; /* Wider on smaller screens */
+        padding: 15px;
+        min-height: 450px; /* Adjust height for mobile */
+    }
+}

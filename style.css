@@ -765,14 +765,14 @@ section {
 /* Return Home button specific to the booking page */
 .booking-section .return-home {
     margin-top: 30px; /* Space below the booking form/thank you message */
-    background-color: #b58d60;
+    background-color: #916d44;
     border: 2px solid #fff; /* White border for contrast on dark background */
     color: #fff; /* White text */
 }
 
 .booking-section .return-home:hover {
-    background-color: #fff;
-    border-color: #916d44;
+    background-color: #916d44;
+    border-color: #fff;
 }
 
 /* Media Queries for Booking Form Responsiveness */

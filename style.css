@@ -771,7 +771,7 @@ section {
 }
 
 .booking-section .return-home:hover {
-    background-color: #916d44;
+    background-color: #fff;
     border-color: #916d44;
 }
 
@@ -935,3 +935,73 @@ section {
         min-height: 450px; /* Adjust height for mobile */
     }
 }
+/* General social links styling */
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0; /* Adjust spacing as needed */
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Space between icons */
+}
+
+.social-links li a {
+    color: #fff; /* White icons */
+    font-size: 2.5rem; /* Adjust icon size */
+    transition: transform 0.3s ease, color 0.3s ease;
+    text-decoration: none; /* Remove underline from phone link */
+    display: flex; /* Make it a flex container to align icon and text */
+    align-items: center; /* Vertically align them */
+    justify-content: center; /* Horizontally center them */
+    flex-direction: column; /* Stack icon and text vertically by default */
+}
+
+/* Hover effect */
+.social-links li a:hover {
+    transform: translateY(-5px);
+    color: #F7ECD4; /* Hover color from brand board */
+}
+
+/* Styling for the phone link specifically */
+.social-links li .phone-link {
+    /* For phone link, adjust as needed. By default, both icon and text are column-stacked */
+    flex-direction: column; /* Icon above text */
+    gap: 5px; /* Space between icon and text */
+}
+
+.social-links li .phone-link i.fas.fa-phone {
+    font-size: 2.5rem; /* Ensure icon is still the desired size */
+}
+
+/* Hide the phone number text on mobile */
+.social-links li .phone-link .phone-number-text {
+    display: none; /* Hide text on smaller screens by default */
+    font-size: 1.2rem; /* Size of the text when shown */
+    font-weight: bold;
+    color: #fff; /* Ensure text color is visible */
+    margin-top: 5px; /* Add some space if text is shown below icon */
+}
+
+/* Media Query for Desktop (or larger screens) */
+@media (min-width: 769px) { /* Adjust breakpoint as needed */
+    .social-links li .phone-link {
+        flex-direction: row; /* On desktop, place icon and text side-by-side */
+        gap: 10px; /* Adjust spacing for row layout */
+    }
+
+    .social-links li .phone-link .phone-number-text {
+        display: inline-block; /* Show the text on desktop */
+    }
+
+    /* You might want to adjust the general icon size on desktop if they look too big with text next to them */
+    .social-links li a i {
+        font-size: 2rem; /* Slightly smaller icons if you prefer on desktop */
+    }
+}
+
+/* If you ONLY ever want the icon for the phone, regardless of device: */
+/*
+.social-links li .phone-link .phone-number-text {
+    display: none !important;
+}
+*/

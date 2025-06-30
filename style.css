@@ -765,7 +765,7 @@ section {
 /* Return Home button specific to the booking page */
 .booking-section .return-home {
     margin-top: 30px; /* Space below the booking form/thank you message */
-    background-color: transparent;
+    background-color: #b58d60;
     border: 2px solid #fff; /* White border for contrast on dark background */
     color: #fff; /* White text */
 }

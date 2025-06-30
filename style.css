@@ -820,6 +820,20 @@ section {
         display: block; /* Show icon on mobile */
     }
 }
+.contact-info {
+    margin-top: 20px; /* Space from social links */
+    display: flex; /* Use flex to control alignment */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-direction: row; /* Default for desktop */
+}
+
+@media (max-width: 768px) {
+    .contact-info {
+        /* If you only have the icon showing, you might want it to still be centered */
+        flex-direction: column; /* Or keep as row if you want icon centered alone */
+    }
+}
 /* Styles for the new phone link within social links */
 .social-links .phone-link {
     display: flex; /* Use flexbox to align icon and text */
@@ -840,7 +854,7 @@ section {
 }
 
 .social-links .phone-link:hover {
-    color: #009688; /* Hover effect */
+    color: #f7ecd4; /* Hover effect */
 }
 
 /* Adjustments for mobile if you want to hide the number and only show the icon */

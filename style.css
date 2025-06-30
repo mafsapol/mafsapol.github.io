@@ -691,7 +691,7 @@ section {
     border-radius: 5px;
     font-size: 1rem;
     color: #333; /* Ensure input text is dark and visible */
-    background-color: #916d44; /* Light background for input fields */
+    background-color: #fff; /* Light background for input fields */
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -728,7 +728,7 @@ section {
 
 .form-submit-btn {
     background-color: #916d44;
-    color: #fff;
+    color: #808080;
     padding: 15px 25px;
     border: none;
     border-radius: 25px;

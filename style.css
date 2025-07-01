@@ -676,7 +676,7 @@ section {
 /* Booking Section Styles */
 .booking-section {
     /* Use a background image from your assets or a solid color for the booking page */
-    background-image: linear-gradient(rgba(145,109,68,0.6), rgba(145,109,68,0.6)), url('assets/contactus2.png'); /* Example: Use an image like booking background.jpg */
+    background-image: linear-gradient(rgba(145,109,68,0.6), rgba(145,109,68,0.6)), url('assets/background3.png'); /* Example: Use an image like booking background.jpg */
     background-size: cover;
     background-position: center;
     color: #fff; /* Default text color for the section */

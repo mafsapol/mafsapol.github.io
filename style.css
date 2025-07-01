@@ -382,23 +382,30 @@ section {
     color: #916d44;
 }
 
+/* Ensure the rates-container uses Flexbox or Grid to arrange the cards */
 .rates-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 30px;
+    flex-wrap: wrap; /* Allow cards to wrap to the next line on smaller screens */
+    justify-content: center; /* Center the cards themselves in the container */
+    gap: 30px; /* Space between the cards */
+    padding: 20px; /* Add some padding around the container */
+    max-width: 1200px; /* Limit the max width of the container */
+    margin: 0 auto; /* Center the container on the page */
 }
 
 .rate-card {
-    background-color: #fff;
+    background-color: #fff; /* Assuming a white background for the cards */
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     padding: 25px;
-    text-align: center;
-    width: 45%; /* Adjust width for 2 columns */
-    max-width: 400px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center; /* Center aligns text, and block-level elements like the button if its parent is text-align: center */
+    display: flex; /* Use flexbox for better control over content alignment */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center items horizontally within the flex container */
+    justify-content: space-between; /* Pushes content and button to ends, distributing space */
+    width: 100%; /* Take full width of its grid column */
+    max-width: 400px; /* Limit max width for responsiveness */
+    margin: 20px auto; /* Center the card itself and add vertical margin */
 }
 
 .rate-card:hover {
@@ -455,7 +462,25 @@ section {
     background-color: #808080;
     border-color: #F7ECD4;
 }
+/* Styling for the booking buttons */
+.book-now-btn {
+    display: inline-block; /* Make it behave like a button, allowing padding/margins */
+    background-color: #916D44; /* Brown 1 from Brand Board */
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 20px; /* Space above the button */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    /* Since the parent (.rate-card) is text-align: center and align-items: center, this button will be centered */
+}
 
+.book-now-btn:hover {
+    background-color: #B58D60; /* Brown 2 on hover */
+    transform: translateY(-2px);
+}
 /* Contact Us Section */
 #ContactUs {
     background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0, 0, 0, 0.75)), url(contactus2.png); /* Changed to use uploaded contactus.jpg */

@@ -367,6 +367,24 @@ section {
         font-size: 1rem;
     }
 }
+.return-home {
+    height: 50px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #916d44;
+    border-color: #f7ecd4;
+    background: #916d44;
+    color: #fff
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    margin-top: 40px; /* Increased margin-top */
+}
+.return-home:hover {
+   background-color: #808080;
+    border-color: #F7ECD4;
+}
+
 
 
 /* Rates Section */
@@ -530,9 +548,9 @@ section {
     border-radius: 25px;
     font-weight: bold;
     border: 2px solid #916d44;
-    border-color: #916d44;
-    background: transparent;
-    color: #fff;
+    border-color: #f7ecd4;
+    background: #916d44;
+    color: #fff
     cursor: pointer;
     transition: background-color 0.3s ease, border-color 0.3s ease;
     margin-top: 40px; /* Increased margin-top */

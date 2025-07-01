@@ -1,9 +1,11 @@
 <?php
-// Set your target email address
-$to_email = 'hiraya.pr@gmail.com'; // **CHANGE THIS to your actual email**
-$subject = 'New Booking Request for Hiraya Private Resort';
+// IMPORTANT: Replace this with YOUR actual email address where you want to receive bookings
+$your_email = 'mafsapol2@gmail.com'; // E.g., hiraya.pr@gmail.com
+$subject = 'New Booking Request from Hiraya Private Resort Website';
+$from_email = 'noreply@yourdomain.com'; // Change to an email address on your website's domain, if you have one.
+                                        // Otherwise, use a valid email or your host's recommended 'From' address.
 
-// Initialize variables for email content
+// --- 1. Collect Form Data ---
 $full_name = $_POST['fullName'] ?? 'N/A';
 $email_address = $_POST['email'] ?? 'N/A';
 $phone_number = $_POST['phone'] ?? 'N/A';
@@ -13,10 +15,47 @@ $guests = $_POST['guests'] ?? 'N/A';
 $message = $_POST['message'] ?? 'No additional notes.';
 $booking_type = $_POST['bookingType'] ?? 'General'; // From hidden input
 
-// Prepare email body
-$email_body = "Hello Hiraya Private Resort Team,\n\n";
-$email_body .= "A new booking request has been submitted!\n\n";
-$email_body .= "--- Booking Details ---\n";
+// --- 2. Handle File Upload (Proof of Payment) ---
+$upload_successful = false;
+$attachment_details = '';
+$uploaded_file_name_on_server = ''; // To store the actual file name on the server
+
+if (isset($_FILES['downpaymentProof']) && $_FILES['downpaymentProof']['error'] === UPLOAD_ERR_OK) {
+    $upload_dir = 'uploads/proofs/'; // Folder to save uploads. MAKE SURE THIS FOLDER EXISTS AND IS WRITABLE!
+                                     // Create this folder manually via FTP/cPanel or your host's file manager.
+                                     // Set permissions: 755 (or 777 if 755 doesn't work, but 755 is more secure)
+
+    // Check if the directory exists, if not, try to create it
+    if (!is_dir($upload_dir)) {
+        mkdir($upload_dir, 0755, true); // Creates the directory recursively
+    }
+
+    $file_tmp_name = $_FILES['downpaymentProof']['tmp_name'];
+    $original_file_name = basename($_FILES['downpaymentProof']['name']);
+    $file_extension = pathinfo($original_file_name, PATHINFO_EXTENSION);
+    $unique_file_name = uniqid('proof_') . '.' . $file_extension; // Generate a unique name to prevent overwrites
+    $destination_path = $upload_dir . $unique_file_name;
+
+    if (move_uploaded_file($file_tmp_name, $destination_path)) {
+        $upload_successful = true;
+        $uploaded_file_name_on_server = $unique_file_name;
+        // Provide a link to the uploaded file in the email (if you access files via HTTP)
+        $attachment_details = "\nProof of Payment Link: http://" . $_SERVER['HTTP_HOST'] . "/" . $upload_dir . $unique_file_name . "\n";
+    } else {
+        error_log("Failed to move uploaded file for booking. Temp: " . $file_tmp_name . ", Dest: " . $destination_path);
+        $attachment_details = "\nNOTE: Proof of payment upload failed on the server.\n";
+    }
+} else {
+    $attachment_details = "\nNo proof of payment file was uploaded, or an upload error occurred.\n";
+    if (isset($_FILES['downpaymentProof'])) {
+        error_log("Upload error code for downpaymentProof: " . $_FILES['downpaymentProof']['error']);
+    }
+}
+
+
+// --- 3. Construct the Email Body ---
+$email_body = "You have a new booking request for Hiraya Private Resort!\n\n";
+$email_body .= "--------------------------------------\n";
 $email_body .= "Booking Type: " . $booking_type . "\n";
 $email_body .= "Full Name: " . $full_name . "\n";
 $email_body .= "Email: " . $email_address . "\n";
@@ -24,91 +63,37 @@ $email_body .= "Phone: " . $phone_number . "\n";
 $email_body .= "Check-in Date: " . $check_in_date . "\n";
 $email_body .= "Check-out Date: " . $check_out_date . "\n";
 $email_body .= "Number of Guests: " . $guests . "\n";
-$email_body .= "Additional Notes: " . $message . "\n\n";
-$email_body .= "-----------------------\n\n";
-$email_body .= "Please check the attached proof of payment.\n";
-$email_body .= "You can contact the customer at " . $email_address . " or " . $phone_number . ".\n";
+$email_body .= "Additional Notes: \n" . $message . "\n";
+$email_body .= "--------------------------------------\n\n";
+$email_body .= $attachment_details; // Include the details about the uploaded file
+$email_body .= "\n\nPlease verify the payment and contact the customer to confirm the booking.";
 
 
-// --- Handle File Upload (Proof of Payment) ---
-$file_attached = false;
-$attachment_path = '';
-
-if (isset($_FILES['downpaymentProof']) && $_FILES['downpaymentProof']['error'] === UPLOAD_ERR_OK) {
-    $upload_dir = 'uploads/proofs/'; // **Ensure this directory exists and is writable by the web server**
-    if (!is_dir($upload_dir)) {
-        mkdir($upload_dir, 0755, true); // Create directory if it doesn't exist
-    }
-
-    $file_tmp_name = $_FILES['downpaymentProof']['tmp_name'];
-    $file_name = basename($_FILES['downpaymentProof']['name']); // Original file name
-    $file_extension = pathinfo($file_name, PATHINFO_EXTENSION);
-    $unique_file_name = uniqid('proof_') . '.' . $file_extension; // Generate unique name
-    $attachment_path = $upload_dir . $unique_file_name;
-
-    if (move_uploaded_file($file_tmp_name, $attachment_path)) {
-        $file_attached = true;
-        $email_body .= "\nProof of Payment: " . $_SERVER['HTTP_HOST'] . "/" . $attachment_path . "\n"; // Link to the uploaded file
-    } else {
-        error_log("Failed to move uploaded file: " . $file_tmp_name . " to " . $attachment_path);
-        $email_body .= "\nWarning: Proof of payment upload failed. Please ask the customer to resend it.\n";
-    }
-} else {
-    $email_body .= "\nNo proof of payment file was uploaded or an error occurred during upload.\n";
-    if (isset($_FILES['downpaymentProof'])) {
-        error_log("Upload error for downpaymentProof: " . $_FILES['downpaymentProof']['error']);
-    }
-}
-
-// --- Prepare Headers for Email with Attachment (using a more robust method than simple mail()) ---
-// For attachments, it's highly recommended to use a library like PHPMailer or implement MIME headers carefully.
-// The basic `mail()` function can be tricky with attachments.
-// Below is a simplified attempt for basic functionality, but PHPMailer is better for production.
-
-// Boundary for multipart message
-$semi_rand = md5(time());
-$mime_boundary = "==Multipart_Boundary_x{$semi_rand}x";
-
-// Headers
-$headers = "From: Hiraya Booking <mafsapol@gmail.com>\r\n"; // CHANGE THIS to an email address on your domain
-$headers .= "Reply-To: " . $email_address . "\r\n";
+// --- 4. Prepare Email Headers (for simple text email) ---
+// For sending attachments reliably, using PHPMailer is highly recommended.
+// This example sends just a link to the uploaded file.
+$headers = "From: " . $from_email . "\r\n";
+$headers .= "Reply-To: " . $email_address . "\r\n"; // So you can reply directly to the customer
 $headers .= "MIME-Version: 1.0\r\n";
-$headers .= "Content-Type: multipart/mixed;\r\n";
-$headers .= " boundary=\"{$mime_boundary}\"\r\n";
+$headers .= "Content-type: text/plain; charset=iso-8859-1\r\n"; // Plain text email
 
-// Multipart body
-$message_content = "This is a multi-part message in MIME format.\r\n\r\n";
-$message_content .= "--{$mime_boundary}\r\n";
-$message_content .= "Content-Type: text/plain; charset=\"iso-8859-1\"\r\n";
-$message_content .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
-$message_content .= $email_body . "\r\n\r\n";
-
-// Attach file
-if ($file_attached && file_exists($attachment_path)) {
-    $message_content .= "--{$mime_boundary}\r\n";
-    $message_content .= "Content-Type: " . mime_content_type($attachment_path) . "; name=\"" . $unique_file_name . "\"\r\n";
-    $message_content .= "Content-Transfer-Encoding: base64\r\n";
-    $message_content .= "Content-Disposition: attachment; filename=\"" . $unique_file_name . "\"\r\n\r\n";
-    $message_content .= chunk_split(base64_encode(file_get_contents($attachment_path))) . "\r\n\r\n";
-}
-
-$message_content .= "--{$mime_boundary}--\r\n";
-
-
-// --- Send Email ---
-if (mail($to_email, $subject, $message_content, $headers)) {
-    // Success response to frontend
+// --- 5. Send the Email ---
+if (mail($your_email, $subject, $email_body, $headers)) {
+    // Success: Send JSON response to frontend
     header('Content-Type: application/json');
     echo json_encode(['success' => true, 'message' => 'Booking request submitted successfully!']);
 } else {
-    // Error response to frontend
+    // Failure: Send JSON error response to frontend
     header('Content-Type: application/json');
-    http_response_code(500); // Internal Server Error
-    echo json_encode(['success' => false, 'message' => 'Failed to send booking request email.']);
-    error_log("Failed to send email to " . $to_email . " for booking from " . $full_name);
+    http_response_code(500); // Set HTTP status code to 500 (Internal Server Error)
+    echo json_encode(['success' => false, 'message' => 'Failed to send booking request email. Please try again.']);
+    // Log the error for debugging (check your web host's error logs)
+    error_log("Email sending failed for booking from " . $full_name . " to " . $your_email);
 }
 
-// Optional: Clean up the uploaded file if you don't need it on the server after emailing
-// unlink($attachment_path); 
+// Optional: If you want to automatically delete the uploaded file after sending the email, uncomment this:
+// if ($upload_successful && file_exists($destination_path)) {
+//     unlink($destination_path);
+// }
 
 ?>

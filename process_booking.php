@@ -70,7 +70,7 @@ $semi_rand = md5(time());
 $mime_boundary = "==Multipart_Boundary_x{$semi_rand}x";
 
 // Headers
-$headers = "From: Hiraya Booking <hiraya.pr@gmail.com>\r\n"; // CHANGE THIS to an email address on your domain
+$headers = "From: Hiraya Booking <mafsapol@gmail.com>\r\n"; // CHANGE THIS to an email address on your domain
 $headers .= "Reply-To: " . $email_address . "\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: multipart/mixed;\r\n";

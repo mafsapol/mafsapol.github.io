@@ -39,8 +39,8 @@
             <h1 id="booking-title">Book Your Stay</h1>
             <p id="booking-intro">Please fill out the form below to request your booking. After submission, you will receive instructions on how to send your downpayment. Upload your proof of payment, and we will manually confirm your reservation.</p>
 
-            <form class="booking-form" id="bookingForm" action="#" method="POST" enctype="multipart/form-data">
-                <input type="hidden" id="bookingType" name="bookingType" value="">
+           <form class="booking-form" id="bookingForm" action="process_booking.php" method="POST" enctype="multipart/form-data">
+                </form>
 
                 <div class="form-group">
                     <label for="fullName">Full Name:</label>
@@ -233,7 +233,44 @@
 
             // Initialize calculation on page load if dates are pre-filled (unlikely for empty form)
             calculateNights();
-        });
+            bookingForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default browser form submission
+
+    const formData = new FormData(bookingForm); // Gathers all form data, including the file
+
+    // Send the form data to your PHP script
+    fetch('process_booking.php', {
+        method: 'POST',
+        body: formData // FormData automatically sets the correct headers for file uploads
+    })
+    .then(response => {
+        if (!response.ok) { // Check if the server responded with an error (e.g., 500 status)
+            // If there's an error, try to read the error message from the server
+            return response.json().then(errorData => {
+                throw new Error(errorData.message || 'Server error occurred.');
+            });
+        }
+        return response.json(); // Assume PHP sends back JSON (e.g., {success: true})
+    })
+    .then(data => {
+        console.log('Success:', data);
+        if (data.success) { // If PHP script indicates success
+            bookingFormContainer.style.display = 'none';
+            thankYouMessage.style.display = 'block';
+            bookingForm.reset(); // Clear the form fields after successful submission
+        } else {
+            alert('Booking submission failed: ' + data.message);
+            bookingFormContainer.style.display = 'block';
+            thankYouMessage.style.display = 'none';
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert('There was an issue submitting your request. Please try again later. Error: ' + error.message);
+        bookingFormContainer.style.display = 'block'; // Show form again on network/script error
+        thankYouMessage.style.display = 'none';
+    });
+    });
     </script>
 </body>
 </html>

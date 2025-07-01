@@ -498,7 +498,7 @@ section {
 }
 /* Contact Us Section */
 #ContactUs {
-    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0, 0, 0, 0.75)), url(contactus2.png); /* Changed to use uploaded contactus.jpg */
+    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0, 0, 0, 0.75)), url(assets/contactus2.png); /* Changed to use uploaded contactus.jpg */
     padding-top: 80px; /* Ensure space for fixed header */
 }
 
@@ -676,7 +676,7 @@ section {
 /* Booking Section Styles */
 .booking-section {
     /* Use a background image from your assets or a solid color for the booking page */
-    background-image: linear-gradient(rgba(145,109,68,0.6), rgba(145,109,68,0.6)), url('booking background.jpg'); /* Example: Use an image like booking background.jpg */
+    background-image: linear-gradient(rgba(145,109,68,0.6), rgba(145,109,68,0.6)), url('assets/contactus2.png'); /* Example: Use an image like booking background.jpg */
     background-size: cover;
     background-position: center;
     color: #fff; /* Default text color for the section */

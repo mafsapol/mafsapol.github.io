@@ -771,8 +771,8 @@ section {
 }
 
 .booking-section .return-home:hover {
-    background-color: #916d44;
-    border-color: #fff;
+    background-color: #fff;
+    border-color: #F7ECD4;
 }
 
 /* Media Queries for Booking Form Responsiveness */

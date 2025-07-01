@@ -92,7 +92,8 @@ header {
 }
 
 .book-now-btn:hover {
-    background-color: #7a5b37;
+  background-color: #808080;
+  border-color: #F7ECD4;
 }
 
 /* --- Collapsible Menu Specific Styles (Revisited for Logo + Hamburger Only) --- */
@@ -437,7 +438,8 @@ section {
 }
 
 .rate-card .book-now-btn:hover {
-    background-color: #7a5b37;
+    background-color: #808080;
+    border-color: #F7ECD4;
 }
 
 /* Contact Us Section */
@@ -473,7 +475,8 @@ section {
 }
 
 .social-links a:hover {
-    color: #b58d60;
+    background-color: #808080;
+    border-color: #F7ECD4;
 }
 
 .social-links li:last-child {
@@ -497,8 +500,8 @@ section {
 }
 
 .return-home:hover {
-    background-color: #009688;
-    border-color: #009688;
+   background-color: #808080;
+    border-color: #F7ECD4;
 }
 
 
@@ -742,7 +745,8 @@ section {
 }
 
 .form-submit-btn:hover {
-    background-color: #7a5b37;
+    background-color: #808080;
+    border-color: #F7ECD4;
     transform: translateY(-2px);
 }
 

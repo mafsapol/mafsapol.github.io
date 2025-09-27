@@ -3,274 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Page - Hiraya Private Resort</title>
+    <title>Book Now | Hiraya Private Resort</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 <header>
     <nav class="navbar">
         <div class="logo">
             <a href="index.html#Home">
-                <img src="assets/hirayalogo3.png" alt="Hiraya Logo">
+                <img src="assets/hirayalogo3.png" alt="Hiraya Logo Icon">
                 <img src="assets/hirayalogo4.png" alt="Hiraya Private Resort Text Logo" class="logo-text-img">
             </a>
         </div>
-
         <a href="javascript:void(0);" class="menu-toggle" aria-label="Toggle navigation menu">
             <i class="fas fa-bars"></i>
         </a>
-        
         <div class="nav-links"> 
             <ul>
                 <li><a href="index.html#Home">Home</a></li>
-                <li><a href="index.html#Amenities">Amenities</a></li>
+                <li><a href="index.html#Amenities">Amenities</a></li> 
                 <li><a href="index.html#Rates">Rates</a></li>
-                <li><a href="#AvailabilityCalendar">Availability</a></li>
+                <li><a href="index.html#AvailabilityCalendar">Availability</a></li>
                 <li><a href="index.html#ContactUs">Contact Us</a></li>
-                <li><a href="book.html" class="book-now-btn">Book Now</a></li> 
+                <li><a href="index.html#Home" class="book-now-btn">Back to Home</a></li> 
             </ul>
         </div>
     </nav>
 </header>
 
-    <section class="booking-section">
-        <div class="booking-content" id="booking-form-container">
-            <h1 id="booking-title">Book Your Stay</h1>
-            <p id="booking-intro">Please fill out the form below to request your booking. After submission, you will receive instructions on how to send your downpayment. Upload your proof of payment, and we will manually confirm your reservation.</p>
+<section class="booking-section">
+    <div id="booking-container" class="booking-content">
+        <h1>Book Your Stay at Hiraya Private Resort</h1>
+        <p>Please fill out the form below to submit your reservation inquiry. Our team will contact you within 24 hours to confirm availability and payment details.</p>
 
-           <form class="booking-form" id="bookingForm" action="process_booking.php" method="POST" enctype="multipart/form-data">
-                </form>
+        <form id="booking-form" class="booking-form" action="#">
+            
+            <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required placeholder="John B. Doe">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required placeholder="name@example.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required placeholder="+63 9xx xxx xxxx">
+            </div>
 
-                <div class="form-group">
-                    <label for="fullName">Full Name:</label>
-                    <input type="text" id="fullName" name="fullName" required>
-                </div>
+            <div class="form-group">
+                <label for="checkin-date">Check-in Date *</label>
+                <input type="date" id="checkin-date" name="checkin-date" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="checkout-date">Check-out Date * (For Day Use, use the same date)</label>
+                <input type="date" id="checkout-date" name="checkout-date" required>
+            </div>
 
-                <div class="form-group">
-                    <label for="email">Email Address:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
+            <div id="nights-display"></div>
 
-                <div class="form-group">
-                    <label for="phone">Phone Number:</label>
-                    <input type="tel" id="phone" name="phone" placeholder="e.g., +639123456789" required>
-                </div>
+            <div class="form-group">
+                <label for="guests">Number of Guests (Max 15)</label>
+                <input type="number" id="guests" name="guests" min="1" max="15" value="1" required>
+            </div>
 
-                <div class="form-group">
-                    <label for="checkInDate">Check-in Date:</label>
-                    <input type="date" id="checkInDate" name="checkInDate" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="checkOutDate">Check-out Date:</label>
-                    <input type="date" id="checkOutDate" name="checkOutDate" required>
-                </div>
-
-                <div id="nights-display"></div>
-
-                <div class="form-group">
-                    <label for="guests">Number of Guests:</label>
-                    <input type="number" id="guests" name="guests" min="1" value="1" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Additional Notes (Optional):</label>
-                    <textarea id="message" name="message" rows="4"></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="downpaymentProof">Upload Downpayment Proof (Image):</label>
-                    <input type="file" id="downpaymentProof" name="downpaymentProof" accept="image/*" required>
-                </div>
-
-                <button type="submit" class="form-submit-btn">Submit Booking Request</button>
-            </form>
-        </div>
-
-        <div class="booking-content" id="thank-you-message" style="display: none;">
-            <h1>Thank You for Your Booking Request!</h1>
-            <p>Your booking request has been submitted. We will review your provided downpayment proof and contact you shortly to confirm your reservation and provide further details.</p>
-            <p>Please allow 24-48 hours for confirmation.</p>
-        </div>
-        
-        <a href="index.html" class="return-home">Return Home</a>
-    </section>
-    <section id="AvailabilityCalendar">
-    <h1>Check Our Availability</h1>
-    <p>View our calendar to see available dates and plan your perfect stay.</p>
-    <div data-tockify-component="calendar" data-tockify-calendar="hirayaprivateresort">
+            <div class="form-group">
+                <label for="message">Special Requests / Notes</label>
+                <textarea id="message" name="message" rows="4" placeholder="E.g., Special occasion, early check-in request."></textarea>
+            </div>
+            
+            <button type="submit" class="form-submit-btn">Submit Booking Inquiry</button>
+        </form>
     </div>
-    <script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js"></script>
-    </section>
+    
+    <div id="thank-you-message" class="booking-content" style="display: none;">
+        <h1>Thank You! 🎉</h1>
+        <p>Your reservation inquiry has been successfully submitted. We appreciate your interest in Hiraya Private Resort!</p>
+        <p>A member of our team will contact you at your provided email/phone number **within 24 hours** to confirm the booking details and proceed with the downpayment.</p>
+        <p>For urgent inquiries, please call us at **+63 961 052 7905**.</p>
+    </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function(){
-            // --- Header Menu Toggle ---
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
+    <a href="index.html#Home" class="return-home">Return to Home Page</a>
+</section>
 
-            if (menuToggle && navLinks) {
-                menuToggle.addEventListener('click', function() {
-                    navLinks.classList.toggle('active');
-                });
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // ------------------------------------------------------------------
+    // 1. Mobile Menu Toggle Logic (Copied from index.html)
+    // ------------------------------------------------------------------
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
-                // Close menu when a link is clicked (optional, but good for UX)
-                navLinks.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        if (navLinks.classList.contains('active')) {
-                            navLinks.classList.remove('active');
-                        }
-                    });
-                });
-            }
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
 
-            // --- Booking Form Logic ---
-            const checkInDateInput = document.getElementById('checkInDate');
-            const checkOutDateInput = document.getElementById('checkOutDate');
-            const nightsDisplay = document.getElementById('nights-display');
-            const bookingForm = document.getElementById('bookingForm');
-            const bookingFormContainer = document.getElementById('booking-form-container');
-            const thankYouMessage = document.getElementById('thank-you-message');
-            const bookingTitle = document.getElementById('booking-title');
-            const bookingIntro = document.getElementById('booking-intro');
-            const bookingTypeInput = document.getElementById('bookingType');
-
-            function calculateNights() {
-                const checkInDate = new Date(checkInDateInput.value);
-                const checkOutDate = new Date(checkOutDateInput.value);
-
-                // Set times to midnight to ensure accurate day calculation
-                checkInDate.setHours(0, 0, 0, 0);
-                checkOutDate.setHours(0, 0, 0, 0);
-
-                if (checkInDate && checkOutDate && checkOutDate > checkInDate) {
-                    const diffTime = Math.abs(checkOutDate - checkInDate);
-                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-                    nightsDisplay.textContent = `Duration: ${diffDays} night(s)`;
-                } else if (checkInDate && checkOutDate && checkInDate >= checkOutDate) {
-                    nightsDisplay.textContent = "Check-out date must be after check-in date.";
-                } else {
-                    nightsDisplay.textContent = "";
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
                 }
+            });
+        });
+    }
+
+    // ------------------------------------------------------------------
+    // 2. Night's Calculation Logic
+    // ------------------------------------------------------------------
+    const checkinInput = document.getElementById('checkin-date');
+    const checkoutInput = document.getElementById('checkout-date');
+    const nightsDisplay = document.getElementById('nights-display');
+
+    function calculateNights() {
+        const checkinDate = new Date(checkinInput.value);
+        const checkoutDate = new Date(checkoutInput.value);
+
+        // Check if both dates are valid
+        if (checkinDate && checkoutDate && checkinDate.getTime() && checkoutDate.getTime()) {
+            const timeDifference = checkoutDate.getTime() - checkinDate.getTime();
+            const dayDifference = timeDifference / (1000 * 60 * 60 * 24);
+
+            if (dayDifference < 0) {
+                nightsDisplay.innerHTML = '<span style="color: red;">Check-out must be after Check-in!</span>';
+                return;
             }
-
-            // Add event listeners
-            checkInDateInput.addEventListener('change', calculateNights);
-            checkOutDateInput.addEventListener('change', calculateNights);
-
-            // Set minimum date for check-in to today
-            const today = new Date();
-            const todayFormatted = today.getFullYear() + '-' +
-                                  String(today.getMonth() + 1).padStart(2, '0') + '-' +
-                                  String(today.getDate()).padStart(2, '0');
-            checkInDateInput.min = todayFormatted;
-
-            // Ensure check-out date is not before check-in date dynamically
-            checkInDateInput.addEventListener('change', () => {
-                checkOutDateInput.min = checkInDateInput.value;
-                // If check-out is before new check-in, reset it
-                if (checkOutDateInput.value && checkOutDateInput.value < checkInDateInput.value) {
-                    checkOutDateInput.value = '';
-                }
-                calculateNights(); // Recalculate if check-in changes
-            });
-
-            // Handle form submission for client-side display
-            bookingForm.addEventListener('submit', function(event) {
-                event.preventDefault(); // Prevent actual form submission
-
-                // For now, only hide the form and show the message immediately
-                // This is ONLY for visual feedback on a static site.
-                bookingFormContainer.style.display = 'none';
-                thankYouMessage.style.display = 'block';
-
-                // IMPORTANT: To actually send data, you need a backend script here.
-                // Example (pseudocode for what would be needed for a real submission):
-                /*
-                const formData = new FormData(bookingForm);
-                fetch('your-backend-script-url.php', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success:', data);
-                    bookingFormContainer.style.display = 'none';
-                    thankYouMessage.style.display = 'block';
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                    alert('There was an error submitting your request. Please try again later.');
-                    bookingFormContainer.style.display = 'block'; // Show form again on error
-                    thankYouMessage.style.display = 'none';
-                });
-                */
-            });
-
-            // Logic to customize booking page based on URL parameter
-            const urlParams = new URLSearchParams(window.location.search);
-            const bookingType = urlParams.get('type'); // 'dayuse' or 'overnight'
-
-            if (bookingType === 'dayuse') {
-                bookingTitle.textContent = 'Book Your Day Use Package';
-                bookingIntro.textContent = 'You are booking a Day Use Package. Please fill out the form below. After submission, you will receive instructions on how to send your downpayment.';
-                bookingTypeInput.value = 'Day Use';
-                // For Day Use, you might want to hide check-out date,
-                // or ensure check-in and check-out are the same day
-                // document.getElementById('checkOutDate').parentElement.style.display = 'none';
-                // nightsDisplay.style.display = 'none';
-            } else if (bookingType === 'overnight') {
-                bookingTitle.textContent = 'Book Your Overnight Stay';
-                bookingIntro.textContent = 'You are booking an Overnight Stay. Please fill out the form below. After submission, you will receive instructions on how to send your downpayment.';
-                bookingTypeInput.value = 'Overnight';
+            
+            if (dayDifference === 0) {
+                nightsDisplay.textContent = 'Duration: Day Use (Same Day)';
             } else {
-                // Default case if no type is specified (e.g., direct access to book.html)
-                bookingTitle.textContent = 'Book Your Stay';
-                bookingIntro.textContent = 'Please fill out the form below to request your booking. After submission, you will receive instructions on how to send your downpayment. Upload your proof of payment, and we will manually confirm your reservation.';
-                bookingTypeInput.value = 'General';
+                // Use Math.ceil to ensure minimum 1 night for overnight
+                nightsDisplay.textContent = `Duration: ${Math.ceil(dayDifference)} night(s)`;
             }
-
-            // Initialize calculation on page load if dates are pre-filled (unlikely for empty form)
-            calculateNights();
-            bookingForm.addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent default browser form submission
-
-    const formData = new FormData(bookingForm); // Gathers all form data, including the file
-
-    // Send the form data to your PHP script
-    fetch('process_booking.php', {
-        method: 'POST',
-        body: formData // FormData automatically sets the correct headers for file uploads
-    })
-    .then(response => {
-        if (!response.ok) { // Check if the server responded with an error (e.g., 500 status)
-            // If there's an error, try to read the error message from the server
-            return response.json().then(errorData => {
-                throw new Error(errorData.message || 'Server error occurred.');
-            });
-        }
-        return response.json(); // Assume PHP sends back JSON (e.g., {success: true})
-    })
-    .then(data => {
-        console.log('Success:', data);
-        if (data.success) { // If PHP script indicates success
-            bookingFormContainer.style.display = 'none';
-            thankYouMessage.style.display = 'block';
-            bookingForm.reset(); // Clear the form fields after successful submission
         } else {
-            alert('Booking submission failed: ' + data.message);
-            bookingFormContainer.style.display = 'block';
-            thankYouMessage.style.display = 'none';
+            nightsDisplay.textContent = 'Please select both dates to calculate duration.';
         }
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-        alert('There was an issue submitting your request. Please try again later. Error: ' + error.message);
-        bookingFormContainer.style.display = 'block'; // Show form again on network/script error
-        thankYouMessage.style.display = 'none';
+    }
+
+    checkinInput.addEventListener('change', calculateNights);
+    checkoutInput.addEventListener('change', calculateNights);
+
+    // Initial check to populate the field on load if necessary (e.g., from query params)
+    calculateNights(); 
+
+    // ------------------------------------------------------------------
+    // 3. Form Submission Handling (Simulated)
+    // ------------------------------------------------------------------
+    const form = document.getElementById('booking-form');
+    const bookingContainer = document.getElementById('booking-container');
+    const thankYouMessage = document.getElementById('thank-you-message');
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // 1. You would normally send the data to a server/email service here (e.g., Fetch API)
+        // console.log('Form Submitted!', new FormData(form));
+
+        // 2. Hide the form and show the thank you message
+        bookingContainer.style.display = 'none';
+        thankYouMessage.style.display = 'block';
+
+        // 3. Smoothly scroll to the top of the booking area to show the thank you message clearly
+        document.querySelector('.booking-section').scrollIntoView({ behavior: 'smooth' });
+
+        // Optional: Clear the form fields (good practice)
+        form.reset();
     });
-    });
-    </script>
+
+    // ------------------------------------------------------------------
+    // 4. Pre-filling Dates (Handling Query Parameters from index.html rates)
+    // ------------------------------------------------------------------
+    const urlParams = new URLSearchParams(window.location.search);
+    const bookingType = urlParams.get('type');
+
+    if (bookingType === 'dayuse') {
+        const today = new Date().toISOString().split('T')[0];
+        checkinInput.value = today;
+        checkoutInput.value = today;
+        calculateNights();
+    } 
+    // For 'overnight', we don't pre-fill; we let the user choose.
+    // However, we should still enforce that check-in cannot be in the past.
+
+    // Set minimum date for check-in to today
+    const today = new Date();
+    // Format YYYY-MM-DD
+    const minDate = today.getFullYear() + '-' + 
+                    ('0' + (today.getMonth() + 1)).slice(-2) + '-' + 
+                    ('0' + today.getDate()).slice(-2);
+                    
+    checkinInput.setAttribute('min', minDate);
+    checkoutInput.setAttribute('min', minDate);
+});
+</script>
 </body>
 </html>

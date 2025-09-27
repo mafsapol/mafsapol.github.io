@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hiraya Private Resort</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 <header>
     <nav class="navbar">
         <div class="logo">
             <a href="#Home">
-                <img src="assets/hirayalogo3.png" alt="Hiraya Logo">
+                <img src="assets/hirayalogo3.png" alt="Hiraya Logo Icon">
                 <img src="assets/hirayalogo4.png" alt="Hiraya Private Resort Text Logo" class="logo-text-img">
             </a>
         </div>
@@ -24,7 +24,7 @@
         <div class="nav-links"> 
             <ul>
                 <li><a href="#Home">Home</a></li>
-                <li><a href="#Amnities">Amenities</a></li>
+                <li><a href="#Amenities">Amenities</a></li> 
                 <li><a href="#Rates">Rates</a></li>
                 <li><a href="#AvailabilityCalendar">Availability</a></li>
                 <li><a href="#ContactUs">Contact Us</a></li>
@@ -40,17 +40,14 @@
             <img src="assets/background2.png" alt="Resort View 1">
             <div class="slide-text"><h1>Welcome to Hiraya Private Resort</h1><p>Your tropical island life escape.</p></div>
         </div>
-
         <div class="mySlides fade">
             <img src="assets/background3.png" alt="Resort View 2">
             <div class="slide-text"><h1>Your Perfect Getaway Awaits</h1><p>Relax and rejuvenate in paradise.</p></div>
         </div>
-
         <div class="mySlides fade">
             <img src="assets/background4.png" alt="Resort View 3">
             <div class="slide-text"><h1>Unforgettable Memories</h1><p>Create lasting moments with loved ones.</p></div>
         </div>
-
         <div class="mySlides fade">
             <img src="assets/relax.jpg" alt="Resort View 4">
             <div class="slide-text"><h1>Experience Serenity</h1><p>Find your peace amidst nature's beauty.</p></div>
@@ -75,17 +72,14 @@
                 <img src="assets/amenities4.jpg" alt="Swimming Pool">
                 <div class="slide-text"><h2>Private Swimming Pool</h2><p>Enjoy exclusive access to our refreshing pool.</p></div>
             </div>
-
             <div class="mySlides-amenities fade">
                 <img src="assets/amenities2.jpg" alt="Spacious Living Area">
                 <div class="slide-text"><h2>Spacious Living Area</h2><p>Comfortable spaces for family and friends.</p></div>
             </div>
-
             <div class="mySlides-amenities fade">
                 <img src="assets/amenities3.jpg" alt="Outdoor Lounge">
                 <div class="slide-text"><h2>Outdoor Lounge</h2><p>Relax and unwind in the fresh air.</p></div>
             </div>
-
             <div class="mySlides-amenities fade">
                 <img src="assets/amenities.jpg" alt="Comfortable Bedrooms">
                 <div class="slide-text"><h2>Comfortable Bedrooms</h2><p>Rest well in our cozy villa rooms.</p></div>
@@ -99,7 +93,7 @@
             </div>
         </div>
 
-        <ul>
+        <ul class="amenities-list">
             <li>Private Swimming Pool</li>
             <li>Fully Equipped Kitchen</li>
             <li>Air-conditioned Bedrooms</li>
@@ -111,6 +105,7 @@
             <li>Dedicated Staff</li>
         </ul>
     </div>
+    <a href="#Home" class="return-home">Back to Top</a>
 </section>
 
 <section id="Rates">
@@ -139,6 +134,7 @@
     </div>
     <script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js"></script>
 </section>
+
 <section id="ContactUs">
     <h1>Contact us now!</h1>
     <ul class="social-links">
@@ -148,10 +144,11 @@
         <li>
             <a href="tel:+639610527905" aria-label="Call Us" class="phone-link">
                 <i class="fas fa-phone"></i>
-                <span class="phone-number-text">+63 961 052 7905</span> </a>
+                <span class="phone-number-text">+63 961 052 7905</span> 
+            </a>
         </li>
     </ul>
-    <button class="return-home" data-section="Home">Return to Home</button>
+    <a href="#Home" class="return-home">Return to Home</a> 
 </section>
 
 <script>
@@ -168,6 +165,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Close menu when a link is clicked (optional, but good for UX)
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
+                // Only hide the menu if the link is NOT the book now button (optional)
                 if (navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active');
                 }
@@ -196,32 +194,33 @@ document.addEventListener("DOMContentLoaded", function() {
                 slideIndex = 1;
             }
             for (let i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(` active-${dotClass}`, "");
+                // Cleaned up the dot class logic for better reusability
+                dots[i].className = dots[i].className.replace(` active`, ""); 
             }
             slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += ` active-${dotClass}`;
+            dots[slideIndex - 1].className += ` active`;
             slideshowTimeout = setTimeout(showSlides, 3000); // Change image every 3 seconds
         }
 
         function showSlidesManual(n) {
-            // Adjust for 0-based index
-            slideIndex = n - 1; 
-            // Clear existing timeout to prevent immediate auto-advance
+            slideIndex = n; // Use the direct number passed from onclick
             clearTimeout(slideshowTimeout); 
-            // Show the selected slide immediately
+            
             for (let i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
             }
             for (let i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(` active-${dotClass}`, "");
+                dots[i].className = dots[i].className.replace(` active`, "");
             }
-            slides[slideIndex].style.display = "block";
-            dots[slideIndex].className += ` active-${dotClass}`;
+            slides[slideIndex - 1].style.display = "block"; // Use n-1 for array index
+            dots[slideIndex - 1].className += ` active`;
+            
             // Restart auto-play after a short delay
-            slideshowTimeout = setTimeout(showSlides, 3000); 
+            slideshowTimeout = setTimeout(showSlides, 5000); // 5 seconds manual viewing time
         }
 
         // Attach manual dot click handlers (needs to be global or attached to window)
+        // This is necessary because the HTML uses inline onclick="functionName(n)"
         if (containerClass === 'slideshow-container') { // Home Slideshow
             window.currentSlide = showSlidesManual;
         } else if (containerClass === 'amenities-slideshow') { // Amenities Slideshow
@@ -229,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         
         // Start the slideshow
-        slideshowTimeout = setTimeout(showSlides, 0); // Start immediately on load
+        showSlides(); // Call directly instead of setTimeout(showSlides, 0)
     }
 
     // Initialize the Home Slideshow
@@ -239,16 +238,21 @@ document.addEventListener("DOMContentLoaded", function() {
     initSlideshow('amenities-slideshow', 'mySlides-amenities', 'dot-amenities');
 
 
-    // --- Smooth Scrolling ---
+    // --- Smooth Scrolling (Updated to handle 'a' tags consistently) ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
-            if (targetId && targetId !== '#') { // Ensure targetId is not null or just '#'
+            // Allow the link to proceed if it's the Book Now link (not a section link)
+            if (targetId === '#') return;
+            
+            e.preventDefault();
+            
+            if (targetId) { 
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     // Calculate offset for fixed header
-                    const headerOffset = 100; // Adjust this value to match your fixed header's height
+                    // Adjust this value to match the final fixed header's height
+                    const headerOffset = 80; 
                     const elementPosition = targetElement.getBoundingClientRect().top;
                     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -261,43 +265,9 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // --- Return Home Button Fix ---
-    const returnHomeButtons = document.querySelectorAll('button.return-home');
-    returnHomeButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const targetSectionId = this.dataset.section;
-            if (targetSectionId) {
-                const targetSection = document.getElementById(targetSectionId);
-                if (targetSection) {
-                    const headerOffset = 100; // Match the offset used for smooth scrolling
-                    const elementPosition = targetSection.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                } else {
-                    window.location.href = 'index.html'; // Fallback if section doesn't exist
-                }
-            } else {
-                window.location.href = 'index.html'; // Default action if no data-section
-            }
-        });
-    });
-
-    // Handle the `a` tag return-home link as well
-    const aReturnHomeLink = document.querySelector('a.return-home');
-    if (aReturnHomeLink) {
-        aReturnHomeLink.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevent default anchor behavior
-            const targetSection = document.getElementById('Home'); // Always scroll to Home for this link
-            if (targetSection) {
-                const headerOffset = 100;
-                const elementPosition = targetSection.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-            } else {
-                window.location.href = 'index.html';
-            }
-        });
-    }
+    // --- Return Home Button (The button version is removed in favor of the 'a' tag) ---
+    // The previous code for button.return-home is now unnecessary due to the HTML changes.
+    // The link version 'a.return-home' is handled by the general smooth scrolling.
 
 });
 </script>

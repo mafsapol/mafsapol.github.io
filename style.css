@@ -25,28 +25,26 @@ header {
     width: 100%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between; /* Space out logo and the rest */
+    justify-content: space-between; 
     align-items: center;
-    padding: 0 1rem; /* Added padding to prevent content touching edges */
+    padding: 0 1rem; 
 }
 
-/* Corrected .logo styles - uses flexbox for proper alignment of logo images */
 .logo {
-    display: flex; /* Use flexbox to align logo image and text image */
-    align-items: center; /* Vertically center them */
-    flex-shrink: 0; /* Prevent logo from shrinking */
+    display: flex; 
+    align-items: center; 
+    flex-shrink: 0; 
 }
 
 .logo a {
-    display: flex; /* Makes the link wrap the images properly */
+    display: flex; 
     align-items: center;
     text-decoration: none;
 }
 
 .logo img {
-    height: 60px; /* Adjust the height as needed */
-    max-width: none; /* Prevent this image from becoming 100% width on mobile too early */
-}
+    height: 60px; 
+    max-width: none; 
 
 .logo-text-img {
     height: 60px; /* Adjust this height to match your main logo and fit well */
@@ -81,22 +79,23 @@ header {
 }
 
 /* Book Now button style */
-.book-now-btn {
-    background-color: #916d44;
-    color: #fff !important;
-    padding: 0.75rem 1.5rem;
-    border-radius: 25px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    white-space: nowrap; /* Prevent button text from wrapping */
+/* Specific override for the Book Now button in the navigation bar */
+.navbar ul li .book-now-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 20px; /* Adjusted to balance height with text links */
+    margin-top: 0;      /* Removes the 20px margin-top from your general styles */
+    font-size: 1rem;    /* Matches your other nav links */
+    height: auto;       /* Prevents height from stretching */
+    line-height: 1;     /* Centers text vertically */
 }
 
-.book-now-btn:hover {
-  background-color: #808080;
-  border-color: #F7ECD4;
+/* Ensure the list item doesn't add extra offset */
+.navbar ul li {
+    display: flex;
+    align-items: center;
 }
-
-/* --- Collapsible Menu Specific Styles (Revisited for Logo + Hamburger Only) --- */
 
 /* Hide the hamburger icon by default on large screens */
 .menu-toggle {

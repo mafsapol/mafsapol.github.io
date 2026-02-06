@@ -1,4 +1,4 @@
-/* General styles */
+/* --- 1. General & Header Fixes --- */
 * {
     margin: 0;
     padding: 0;
@@ -11,59 +11,56 @@ body {
 }
 
 header {
-    background-color: rgba(30, 25, 20, 0.9); /* Semi-transparent header */
+    background-color: rgba(30, 25, 20, 0.9);
     color: #fff;
     padding: 1rem 0;
-    position: fixed; /* Fixed header */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 100; /* Ensure it stays on top */
+    z-index: 100;
 }
 
 .navbar {
     width: 100%;
-    margin: 0 auto;
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
-    padding: 0 1rem; 
+    padding: 0 2rem;
 }
 
-.logo {
-    display: flex; 
-    align-items: center; 
-    flex-shrink: 0; 
-}
-
-.logo a {
-    display: flex; 
+/* Fixed the missing brace here */
+.logo, .logo a {
+    display: flex;
     align-items: center;
     text-decoration: none;
+    flex-shrink: 0;
 }
 
 .logo img {
-    height: 60px; 
-    max-width: none; 
+    height: 60px;
+    max-width: none;
+} /* This was the missing brace! */
 
 .logo-text-img {
-    height: 60px; /* Adjust this height to match your main logo and fit well */
+    height: 60px;
     width: auto;
-    margin-left: 15px; /* Spacing between the two logo images */
-    max-width: none; /* Prevent this image from becoming 100% width on mobile too early */
+    margin-left: 15px;
 }
 
-/* Desktop Navigation Links */
+/* --- 2. Navigation Alignment --- */
 .navbar ul {
-    list-style: none;
+    list-style: none; /* Removes the dots */
     display: flex;
-    align-items: center;
+    align-items: center; /* Centers everything vertically on the line */
     margin: 0;
     padding: 0;
 }
 
 .navbar ul li {
     margin-left: 20px;
+    display: flex;
+    align-items: center;
 }
 
 .navbar ul li a {
@@ -74,30 +71,26 @@ header {
     transition: color 0.3s ease;
 }
 
-.navbar ul li a:hover {
-    color: #b58d60; /* Changed hover color to match book-now-btn */
-}
-
-/* Book Now button style */
-/* Specific override for the Book Now button in the navigation bar */
+/* --- 3. The "Book Now" Header Button --- */
+/* Target only the button in the header so it doesn't fight with the Rate Cards */
 .navbar ul li .book-now-btn {
+    background-color: #916d44;
+    color: #fff !important;
+    padding: 8px 18px; /* Slightly smaller for the header */
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 0; /* Ensures it stays level with text links */
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    padding: 8px 20px; /* Adjusted to balance height with text links */
-    margin-top: 0;      /* Removes the 20px margin-top from your general styles */
-    font-size: 1rem;    /* Matches your other nav links */
-    height: auto;       /* Prevents height from stretching */
-    line-height: 1;     /* Centers text vertically */
+    line-height: 1;
+    white-space: nowrap;
 }
 
-/* Ensure the list item doesn't add extra offset */
-.navbar ul li {
-    display: flex;
-    align-items: center;
+.navbar ul li .book-now-btn:hover {
+    background-color: #b58d60;
+    transform: none; /* Keeps the header stable */
 }
-
-/* Hide the hamburger icon by default on large screens */
 .menu-toggle {
     display: none;
     font-size: 2rem; /* Size of the hamburger icon */

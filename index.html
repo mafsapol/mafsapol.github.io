@@ -172,7 +172,54 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
+const chatInput = document.getElementById('chat-input');
+const sendBtn = document.getElementById('send-btn');
+const chatBody = document.getElementById('chat-body');
+const chatWindow = document.getElementById('chat-window');
+const chatToggleBtn = document.getElementById('chat-toggle-btn');
+const closeChat = document.getElementById('close-chat');
 
+// 1. Toggle Chat Window
+chatToggleBtn.onclick = () => chatWindow.classList.toggle('hidden');
+closeChat.onclick = () => chatWindow.classList.add('hidden');
+
+// 2. Knowledge Base (Your Inquiries)
+const responses = {
+    "rates": "Our Day Use packages start at ₱X,XXX and Overnight stays at ₱X,XXX. Check the Rates section for details!",
+    "booking": "Bookings are limited to 15 guests for day use. You can book directly via the 'Book Now' button.",
+    "corkage": "We have a minimal corkage fee of ₱500 for outside alcoholic drinks. Food is free to bring!",
+    "contact": "You can reach us at +63 961 052 7905 or email hiraya.pr@gmail.com.",
+    "add-on": "Extra pillows and blankets are ₱100 each. Karaoke is included in your stay!",
+    "default": "I'm not sure about that. Would you like our contact number to ask the staff directly?"
+};
+
+// 3. Function to send message
+function handleChat() {
+    const userText = chatInput.value.toLowerCase().trim();
+    if (!userText) return;
+
+    // Display User Message
+    chatBody.innerHTML += `<div class="user-msg">${chatInput.value}</div>`;
+    chatInput.value = "";
+
+    // Generate Bot Response
+    setTimeout(() => {
+        let botResponse = responses["default"];
+        
+        // Simple Keyword Matching
+        if (userText.includes("rate") || userText.includes("price")) botResponse = responses["rates"];
+        else if (userText.includes("book") || userText.includes("limit")) botResponse = responses["booking"];
+        else if (userText.includes("corkage") || userText.includes("fee")) botResponse = responses["corkage"];
+        else if (userText.includes("contact") || userText.includes("call")) botResponse = responses["contact"];
+        else if (userText.includes("add-on") || userText.includes("extra")) botResponse = responses["add-on"];
+
+        chatBody.innerHTML += `<div class="bot-msg">${botResponse}</div>`;
+        chatBody.scrollTop = chatBody.scrollHeight; // Auto-scroll to bottom
+    }, 600);
+}
+
+sendBtn.onclick = handleChat;
+chatInput.onkeypress = (e) => { if (e.key === 'Enter') handleChat(); };
     // --- Generic Slideshow Logic for Multiple Slideshows ---
     function initSlideshow(containerClass, slideClass, dotClass) {
         let slideIndex = 0;

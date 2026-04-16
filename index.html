@@ -272,4 +272,22 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 </body>
+    <div id="chat-container">
+    <div id="chat-window" class="hidden">
+        <div id="chat-header">
+            <h3>Hiraya Assistant</h3>
+            <button id="close-chat">&times;</button>
+        </div>
+        <div id="chat-body">
+            <div class="bot-msg">Hello! How can I help you with your stay at Hiraya today?</div>
+        </div>
+        <div id="chat-footer">
+            <input type="text" id="chat-input" placeholder="Ask about rates, fees, or booking...">
+            <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+    <button id="chat-toggle-btn">
+        <i class="fas fa-comments"></i>
+    </button>
+</div>
 </html>
